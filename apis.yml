@@ -1,0 +1,101 @@
+name: Google Android
+description: Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones, tablets, TVs, and wearables.
+image: https://www.android.com/static/images/logos/android-logo.png
+url: https://www.android.com/
+created: '2024'
+modified: '2024'
+specificationVersion: '0.18'
+tags:
+- mobile operating system
+- android
+- mobile development
+- google
+- open source
+apis:
+- name: Android Management API
+  description: The Android Management API provides remote enterprise management of Android devices by creating and managing policies that control device behavior and apps.
+  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - enterprise
+  - device management
+  - MDM
+  - policies
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: OpenAPI
+    url: https://androidmanagement.googleapis.com/$discovery/rest?version=v1
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+- name: Google Play Developer API
+  description: The Google Play Developer API allows you to perform a number of publishing and app-management tasks including managing in-app purchases and subscriptions.
+  image: https://play-lh.googleusercontent.com/BJIR7aQ3sMO0JlxdVcX_Wy8mMv-Inh8J9t3i-ARE6M9aKqBKPDxQMr1JkEALvMECEXRM
+  humanURL: https://developers.google.com/android-publisher
+  baseURL: https://androidpublisher.googleapis.com
+  tags:
+  - play store
+  - publishing
+  - subscriptions
+  - in-app purchases
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: OpenAPI
+    url: https://androidpublisher.googleapis.com/$discovery/rest?version=v3
+  - type: Getting Started
+    url: https://developers.google.com/android-publisher/getting_started
+- name: Firebase Cloud Messaging API
+  description: Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably send messages to Android devices at no cost.
+  image: https://firebase.google.com/images/social.png
+  humanURL: https://firebase.google.com/docs/cloud-messaging
+  baseURL: https://fcm.googleapis.com
+  tags:
+  - push notifications
+  - messaging
+  - firebase
+  - cloud messaging
+  properties:
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: OpenAPI
+    url: https://fcm.googleapis.com/$discovery/rest?version=v1
+  - type: SDK
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+- name: Google Play Games Services API
+  description: The Google Play Games Services API enables games to integrate with features like achievements, leaderboards, and multiplayer gaming.
+  image: https://play-lh.googleusercontent.com/BJIR7aQ3sMO0JlxdVcX_Wy8mMv-Inh8J9t3i-ARE6M9aKqBKPDxQMr1JkEALvMECEXRM
+  humanURL: https://developers.google.com/games/services
+  baseURL: https://www.googleapis.com/games/v1
+  tags:
+  - gaming
+  - achievements
+  - leaderboards
+  - multiplayer
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: OpenAPI
+    url: https://www.googleapis.com/discovery/v1/apis/games/v1/rest
+  - type: SDK
+    url: https://developers.google.com/games/services/android/quickstart
+maintainers:
+- name: Google
+  email: android-developers@google.com
+  url: https://developers.google.com/android
+common:
+- type: Portal
+  url: https://developers.android.com/
+- type: Blog
+  url: https://android-developers.googleblog.com/
+- type: GitHub Organization
+  url: https://github.com/android
+- type: Terms of Service
+  url: https://developers.google.com/terms
+- type: Privacy Policy
+  url: https://policies.google.com/privacy
+- type: Support
+  url: https://developer.android.com/support
+- type: Status
+  url: https://status.cloud.google.com/
