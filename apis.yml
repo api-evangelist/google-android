@@ -5,7 +5,8 @@ type: Index
 image: https://www.android.com/static/images/logos/android-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-03-16'
+modified: '2026-04-18'
+access: 3rd-Party
 specificationVersion: '0.19'
 tags:
   - Android
@@ -176,25 +177,65 @@ common:
     url: https://developers.android.com/
   - type: Blog
     url: https://android-developers.googleblog.com/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/android
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://developers.google.com/terms
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://policies.google.com/privacy
   - type: Support
     url: https://developer.android.com/support
   - type: Newsletter
     url: https://developer.android.com/newsletter
-  - type: Stack Overflow
+  - type: StackOverflow
     url: https://stackoverflow.com/questions/tagged/android
   - type: YouTube
     url: https://www.youtube.com/user/androiddevelopers
-  - type: Issue Tracker
+  - type: Support
     url: https://issuetracker.google.com/issues?q=componentid:192735
-  - type: Community
-    url: https://developer.android.com/community
-  - type: Codelabs
+  - type: Training
     url: https://developer.android.com/courses
-  - type: Status
+  - type: StatusPage
     url: https://status.cloud.google.com/
+  - type: Features
+    data:
+      - name: Enterprise Device Management
+        description: Remotely manage and configure Android devices with policies for enterprise mobility.
+      - name: App Publishing and Distribution
+        description: Publish and manage Android apps on Google Play including in-app purchases and subscriptions.
+      - name: Push Notifications
+        description: Send cross-platform push notifications to Android devices via Firebase Cloud Messaging.
+      - name: Play Integrity
+        description: Verify that interactions come from genuine app binaries running on genuine Android devices.
+      - name: Zero-Touch Enrollment
+        description: Automate enterprise device provisioning and enrollment at scale.
+      - name: Cloud Testing
+        description: Test Android apps on real and virtual devices in Google data centers via Firebase Test Lab.
+      - name: Game Services
+        description: Integrate achievements, leaderboards, and multiplayer features into Android games.
+      - name: Over-the-Air Updates
+        description: Manage system updates and firmware deployments for Android device fleets.
+  - type: UseCases
+    data:
+      - name: Enterprise Mobility Management
+        description: Deploy and manage corporate Android devices with security policies and app distribution.
+      - name: App Store Management
+        description: Automate app publishing, pricing, and subscription management on Google Play.
+      - name: User Engagement
+        description: Drive user engagement with push notifications, in-app messages, and game achievements.
+      - name: Device Fleet Management
+        description: Manage large fleets of Android devices for retail, logistics, or field operations.
+      - name: App Quality Assurance
+        description: Automate testing of Android apps across device configurations using Cloud Testing.
+  - type: Integrations
+    data:
+      - name: Firebase
+        description: Integrate with Firebase for analytics, crashlytics, authentication, and cloud messaging.
+      - name: Google Cloud
+        description: Connect Android apps to Google Cloud services for storage, ML, and compute.
+      - name: Google Play Console
+        description: Manage app releases, testing tracks, and performance metrics through the Play Console.
+      - name: Android Studio
+        description: Develop and debug Android apps with the official IDE and its integrated tools.
+      - name: Jetpack Libraries
+        description: Use Android Jetpack libraries for architecture, UI, and behavior best practices.
