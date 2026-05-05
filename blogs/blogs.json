@@ -1,0 +1,13 @@
+{
+  "repo": "google-android",
+  "feeds": [
+    {
+      "source": "https://android-developers.googleblog.com/",
+      "feed_url": "https://android-developers.googleblog.com/feeds/posts/default",
+      "saved": 10,
+      "title": "Android Developers Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:28:26Z"
+}
