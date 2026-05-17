@@ -49,7 +49,7 @@ apis:
         url: https://developers.google.com/android-publisher/api-ref/rest
       - type: OpenAPI
         url: https://androidpublisher.googleapis.com/$discovery/rest?version=v3
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/android-publisher/getting_started
   - aid: google-android:firebase-cloud-messaging-api
     name: Firebase Cloud Messaging API
@@ -101,7 +101,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.google.com/zero-touch/reference/reseller/rest
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/zero-touch/guides/overview
   - aid: google-android:android-over-the-air-api
     name: Android Over the Air API
@@ -135,7 +135,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developers.google.com/android/work/play/emm-api/v1
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developers.google.com/android/work/play/emm-api/getstarted
   - aid: google-android:play-integrity-api
     name: Play Integrity API
@@ -151,7 +151,7 @@ apis:
     properties:
       - type: Documentation
         url: https://developer.android.com/google/play/integrity/overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://developer.android.com/google/play/integrity/standard
   - aid: google-android:cloud-testing-api
     name: Cloud Testing API
@@ -167,7 +167,7 @@ apis:
     properties:
       - type: Documentation
         url: https://firebase.google.com/docs/test-lab/reference/testing/rest/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://firebase.google.com/docs/test-lab/android/get-started
 maintainers:
   - FN: Kin Lane
