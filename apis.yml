@@ -173,6 +173,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/android_by_google
   - type: Portal
     url: https://developers.android.com/
   - type: Blog
