@@ -2,12 +2,20 @@
   "repo": "google-android",
   "feeds": [
     {
-      "source": "https://android-developers.googleblog.com/",
+      "source": "https://android-developers.googleblog.com/atom.xml",
       "feed_url": "https://android-developers.googleblog.com/atom.xml",
-      "title": "Android Developers Blog",
-      "saved": 19
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://developers.android.com/",
+      "feed_url": "https://developers.android.com/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 32,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 47,
+  "fetched": "2026-06-01T23:35:02Z"
 }
