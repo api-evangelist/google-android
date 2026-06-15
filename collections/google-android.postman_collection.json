@@ -1,0 +1,1633 @@
+{
+  "item": [
+    {
+      "id": "12a1ae07-0e54-4153-8093-3cebabb62210",
+      "name": "Create enterprise",
+      "request": {
+        "name": "Create enterprise",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            "enterprises"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "projectId",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "signupUrlName",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "enterpriseToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ad86ecb1-e826-40b2-b1e5-b5fd806c10b1",
+          "name": "Enterprise created",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "enterprises"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "signupUrlName",
+                  "value": "<string>"
+                },
+                {
+                  "key": "enterpriseToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"enterpriseDisplayName\": \"string\",\n  \"primaryColor\": 9407,\n  \"logo\": {},\n  \"enabledNotificationTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pubsubTopic\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "242170b4-7cd5-4250-930b-67774805aa19",
+      "name": "List enterprises",
+      "request": {
+        "name": "List enterprises",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            "enterprises"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "projectId",
+              "value": "<string>"
+            },
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ab5fb041-2ae9-4a1b-8147-4c0a34df49e3",
+          "name": "List response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "enterprises"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"enterprises\": [\n    {\n      \"name\": \"string\",\n      \"enterpriseDisplayName\": \"string\",\n      \"primaryColor\": 2941,\n      \"logo\": {},\n      \"enabledNotificationTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pubsubTopic\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"enterpriseDisplayName\": \"string\",\n      \"primaryColor\": 7680,\n      \"logo\": {},\n      \"enabledNotificationTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pubsubTopic\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e816ee8d-67b5-4982-bb0f-272aceec6334",
+      "name": "Get enterprise",
+      "request": {
+        "name": "Get enterprise",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6349213a-18c4-4806-a734-ff97361c8062",
+          "name": "Enterprise resource",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"enterpriseDisplayName\": \"string\",\n  \"primaryColor\": 9407,\n  \"logo\": {},\n  \"enabledNotificationTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pubsubTopic\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0f0306bc-79b2-4011-8fba-27e914429a89",
+      "name": "Update enterprise",
+      "request": {
+        "name": "Update enterprise",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "updateMask",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "9e1b67b8-bdb7-4e31-8da6-afcfe3012862",
+          "name": "Updated enterprise",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "updateMask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"enterpriseDisplayName\": \"string\",\n  \"primaryColor\": 9407,\n  \"logo\": {},\n  \"enabledNotificationTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pubsubTopic\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a9af2576-e695-4f43-bbbc-23757120e888",
+      "name": "Delete enterprise",
+      "request": {
+        "name": "Delete enterprise",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "75bd261d-1241-4364-bba5-6f8ced0a4dd7",
+          "name": "Deleted",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "c269c004-dbfe-4e2a-98e1-f2c60b55a164",
+      "name": "List devices",
+      "request": {
+        "name": "List devices",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "devices"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "pageSize",
+              "value": "<integer>"
+            },
+            {
+              "disabled": false,
+              "key": "pageToken",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "ac359d2e-0db3-4785-976f-a9f18dacac8b",
+          "name": "Device list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "devices"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"devices\": [\n    {\n      \"name\": \"string\",\n      \"userName\": \"string\",\n      \"managementMode\": \"string\",\n      \"state\": \"string\",\n      \"appliedState\": \"string\",\n      \"policyName\": \"string\",\n      \"enrollmentTime\": \"1981-10-11T07:08:39.824Z\",\n      \"lastStatusReportTime\": \"1955-03-02T14:46:11.931Z\"\n    },\n    {\n      \"name\": \"string\",\n      \"userName\": \"string\",\n      \"managementMode\": \"string\",\n      \"state\": \"string\",\n      \"appliedState\": \"string\",\n      \"policyName\": \"string\",\n      \"enrollmentTime\": \"1961-12-26T08:27:49.363Z\",\n      \"lastStatusReportTime\": \"2012-08-17T10:45:51.716Z\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "f12d5bcf-dcf8-4ef7-bfe0-f4039f3bde59",
+      "name": "Get device",
+      "request": {
+        "name": "Get device",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name",
+            "device"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "0baf477d-1311-47a1-b12b-3cbbfe051610",
+          "name": "Device",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"userName\": \"string\",\n  \"managementMode\": \"string\",\n  \"state\": \"string\",\n  \"appliedState\": \"string\",\n  \"policyName\": \"string\",\n  \"enrollmentTime\": \"2023-03-03T03:43:43.233Z\",\n  \"lastStatusReportTime\": \"2012-09-18T17:35:15.915Z\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7475de60-51ff-4101-994a-c6b77bdda189",
+      "name": "Issue command to device",
+      "request": {
+        "name": "Issue command to device",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            "{{name}}:issueCommand"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "1daab3e3-126b-4a19-b7c6-ec1d168fb25c",
+          "name": "Operation",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "{{name}}:issueCommand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"newPassword\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "689493c1-aac2-4727-9746-9d3f0058d83a",
+      "name": "List policies",
+      "request": {
+        "name": "List policies",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "policies"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "764bb8f4-bda3-45b4-9ef9-2290e3d6c471",
+          "name": "Policy list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"policies\": [\n    {\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"passwordRequirements\": {},\n      \"cameraDisabled\": true,\n      \"screenCaptureDisabled\": true\n    },\n    {\n      \"name\": \"string\",\n      \"version\": \"string\",\n      \"passwordRequirements\": {},\n      \"cameraDisabled\": true,\n      \"screenCaptureDisabled\": false\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e6186515-9dcd-4855-a501-9dd3c832c775",
+      "name": "Get policy",
+      "request": {
+        "name": "Get policy",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name",
+            "policy"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "80985039-6e82-4f52-b9cd-7f9ac2253f22",
+          "name": "Policy",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"passwordRequirements\": {},\n  \"cameraDisabled\": true,\n  \"screenCaptureDisabled\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "87376de5-7505-4e18-9e1d-59c2e15d3307",
+      "name": "Create or update policy",
+      "request": {
+        "name": "Create or update policy",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":name",
+            "policy"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [
+            {
+              "disabled": false,
+              "key": "updateMask",
+              "value": "<string>"
+            }
+          ],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "name",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "PATCH",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"applications\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"passwordRequirements\": \"<object>\",\n  \"cameraDisabled\": \"<boolean>\",\n  \"screenCaptureDisabled\": \"<boolean>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2a9ceb6a-df0a-4235-8d15-7a556b2c1752",
+          "name": "Updated policy",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":name",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "updateMask",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"version\": \"<string>\",\n  \"applications\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"passwordRequirements\": \"<object>\",\n  \"cameraDisabled\": \"<boolean>\",\n  \"screenCaptureDisabled\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"version\": \"string\",\n  \"passwordRequirements\": {},\n  \"cameraDisabled\": true,\n  \"screenCaptureDisabled\": true\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "120ee2e3-67a2-49c5-9c9a-705fec8341d5",
+      "name": "Create enrollment token",
+      "request": {
+        "name": "Create enrollment token",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "enrollmentTokens"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"policyName\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"additionalData\": \"<string>\",\n  \"user\": \"<object>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "b6e18943-82bf-4de2-bde1-fe6d632920ad",
+          "name": "Token",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "enrollmentTokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policyName\": \"<string>\",\n  \"duration\": \"<string>\",\n  \"additionalData\": \"<string>\",\n  \"user\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"name\": \"string\",\n  \"value\": \"string\",\n  \"qrCode\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d800d1a4-98d0-4c0f-bdd1-ce7649c773f3",
+      "name": "List enrollment tokens",
+      "request": {
+        "name": "List enrollment tokens",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "enrollmentTokens"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "84880735-7433-4b92-adb3-c2e6cd3dd372",
+          "name": "Token list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "enrollmentTokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "85fb5337-474e-4008-9bbc-e8e92f1ccef4",
+      "name": "Create web app",
+      "request": {
+        "name": "Create web app",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "webApps"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "<object>",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "d7d63057-78e4-41e1-843e-d7ed6ff12652",
+          "name": "Web app",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "webApps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "5328a59a-a769-456d-b557-9cc29f053b82",
+      "name": "List web apps",
+      "request": {
+        "name": "List web apps",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            ":parent",
+            "webApps"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "parent",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b0e4421d-9fa2-4a56-9bc7-dd9ec3435e90",
+          "name": "Web app list",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                ":parent",
+                "webApps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "parent",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: oauth2",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<token>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://androidmanagement.googleapis.com",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "name"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "androidmanagement"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "01ac9daa-95c2-4a8d-85a8-abbf206ff7c7",
+    "name": "Android Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Android Management API provides remote enterprise management of Android\ndevices by creating and managing policies that control device behavior and\napps. It is used by Enterprise Mobility Management (EMM) providers to manage\nAndroid Enterprise deployments.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,356 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Android Management API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List enterprises",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/enterprises",
+        "params": [
+          {
+            "name": "projectId",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List enterprises"
+    },
+    {
+      "info": {
+        "name": "Create enterprise",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://androidmanagement.googleapis.com/v1/enterprises",
+        "params": [
+          {
+            "name": "projectId",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "signupUrlName",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "enterpriseToken",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create enterprise"
+    },
+    {
+      "info": {
+        "name": "Get enterprise",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:name",
+        "params": [
+          {
+            "name": "name",
+            "value": "enterprises/LC0123abcd",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get enterprise"
+    },
+    {
+      "info": {
+        "name": "Update enterprise",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://androidmanagement.googleapis.com/v1/:name",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "updateMask",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update enterprise"
+    },
+    {
+      "info": {
+        "name": "Delete enterprise",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "https://androidmanagement.googleapis.com/v1/:name",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete enterprise"
+    },
+    {
+      "info": {
+        "name": "List devices",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/devices",
+        "params": [
+          {
+            "name": "parent",
+            "value": "enterprises/LC0123abcd",
+            "type": "path"
+          },
+          {
+            "name": "pageSize",
+            "value": "",
+            "type": "query"
+          },
+          {
+            "name": "pageToken",
+            "value": "",
+            "type": "query"
+          }
+        ]
+      },
+      "docs": "List devices"
+    },
+    {
+      "info": {
+        "name": "Get device",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:name/device",
+        "params": [
+          {
+            "name": "name",
+            "value": "enterprises/LC0123abcd/devices/3789123",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get device"
+    },
+    {
+      "info": {
+        "name": "Issue command to device",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://androidmanagement.googleapis.com/v1/:name:issueCommand",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Issue command to device"
+    },
+    {
+      "info": {
+        "name": "List policies",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/policies",
+        "params": [
+          {
+            "name": "parent",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List policies"
+    },
+    {
+      "info": {
+        "name": "Get policy",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:name/policy",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get policy"
+    },
+    {
+      "info": {
+        "name": "Create or update policy",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://androidmanagement.googleapis.com/v1/:name/policy",
+        "params": [
+          {
+            "name": "name",
+            "value": "",
+            "type": "path"
+          },
+          {
+            "name": "updateMask",
+            "value": "",
+            "type": "query"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create or update policy"
+    },
+    {
+      "info": {
+        "name": "List enrollment tokens",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/enrollmentTokens",
+        "params": [
+          {
+            "name": "parent",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List enrollment tokens"
+    },
+    {
+      "info": {
+        "name": "Create enrollment token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/enrollmentTokens",
+        "params": [
+          {
+            "name": "parent",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create enrollment token"
+    },
+    {
+      "info": {
+        "name": "List web apps",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/webApps",
+        "params": [
+          {
+            "name": "parent",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List web apps"
+    },
+    {
+      "info": {
+        "name": "Create web app",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://androidmanagement.googleapis.com/v1/:parent/webApps",
+        "params": [
+          {
+            "name": "parent",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create web app"
+    }
+  ],
+  "bundled": true
+}
