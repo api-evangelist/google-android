@@ -173,6 +173,10 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: DomainSecurity
+    url: security/google-android-domain-security.yml
+  - type: Authentication
+    url: authentication/google-android-authentication.yml
   - type: OAuthScopes
     url: scopes/google-android-scopes.yml
   - type: LinkedIn
