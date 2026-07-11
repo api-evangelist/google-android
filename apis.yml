@@ -173,6 +173,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: OAuthScopes
+    url: scopes/google-android-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/android_by_google
   - type: Portal

@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/google-android-openapi.yml
+schemes:
+- name: OAuth2
+  source: openapi/google-android-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+    tokenUrl: https://oauth2.googleapis.com/token
+scopes:
+- scope: androidmanagement
+  description: Manage Android devices and apps for your customers
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/google-android-openapi.yml
