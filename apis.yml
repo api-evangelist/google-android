@@ -173,6 +173,8 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/google-android-agentic-access.yml
   - type: DomainSecurity
     url: security/google-android-domain-security.yml
   - type: Authentication
