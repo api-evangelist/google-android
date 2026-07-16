@@ -1,18 +1,34 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/google-android-openapi.yml
+generated: '2026-06-20'
+method: searched
+source: Google Discovery documents + https://developers.google.com/android/management/authentication
+docs:
+  - https://developers.google.com/android/management/authentication
+  - https://developers.google.com/identity/protocols/oauth2
+  - https://developers.google.com/identity/protocols/oauth2/service-account
 summary:
   types:
-  - oauth2
+    - oauth2
   oauth2_flows:
-  - authorizationCode
+    - authorizationCode
+    - jwtBearer (service account)
+  identity_host: https://accounts.google.com
 schemes:
-- name: OAuth2
-  type: oauth2
-  flows:
-  - flow: authorizationCode
-    authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
-    tokenUrl: https://oauth2.googleapis.com/token
-    scopes: 1
-  sources:
-  - openapi/google-android-openapi.yml
+  - name: OAuth2
+    type: oauth2
+    flows:
+      - flow: authorizationCode
+        authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+        tokenUrl: https://oauth2.googleapis.com/token
+        use: interactive user consent
+      - flow: serviceAccount
+        mechanism: JWT bearer (RFC 7523) exchanged at token endpoint; optional domain-wide delegation
+        tokenUrl: https://oauth2.googleapis.com/token
+        use: server-to-server (recommended for enterprise/EMM automation)
+    sources:
+      - openapi/google-android-openapi.yml
+notes: >-
+  Every API in this repo authenticates with Google OAuth 2.0 access tokens (Bearer)
+  scoped per Discovery document (see scopes/). Server integrations use Google service
+  accounts (JWT bearer). Firebase Cloud Messaging additionally supports the Firebase
+  Admin SDK credential flow. Play Integrity verdicts are additionally protected by
+  Google-managed keys. No API keys or basic auth are used for these management APIs.

@@ -1,0 +1,25 @@
+generated: '2026-06-20'
+method: searched
+probe: false
+url: https://cloud.google.com/security/compliance/offerings
+certifications:
+  - SOC 2
+  - SOC 3
+  - ISO 27001
+  - ISO 27017
+  - ISO 27018
+  - ISO 27701
+  - PCI DSS
+  - HIPAA
+  - FedRAMP
+  - CSA STAR
+  - GDPR
+evidence:
+  - source: https://cloud.google.com/security/compliance/offerings
+    keywords: [soc 2, soc 3, iso 27001, iso 27017, iso 27018, pci dss, hipaa, fedramp, csa star, gdpr]
+    kind: compliance-offerings
+notes: >-
+  The Android/Google APIs in this repo run on Google Cloud infrastructure and
+  inherit its compliance posture. Named certifications are published on the Google
+  Cloud Compliance Offerings page; reports are available via the Compliance Reports
+  Manager (https://cloud.google.com/security/compliance/compliance-reports-manager).

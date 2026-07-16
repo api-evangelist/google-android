@@ -1,0 +1,40 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/google-android-openapi.yml + Google API design guide (AIP) + Discovery docs
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: All APIs declare OAuth 2.0 security schemes (Discovery auth.oauth2)
+  - id: oidc
+    conforms: true
+    evidence: accounts.google.com serves /.well-known/openid-configuration; Google is a certified OpenID Provider
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: accounts.google.com serves /.well-known/oauth-authorization-server (200)
+  - id: rfc9116-security-txt
+    conforms: true
+    evidence: www.google.com/.well-known/security.txt present with Contact/Policy
+  - id: rfc7523-jwt-bearer
+    conforms: true
+    evidence: Service-account auth exchanges signed JWT assertions at the token endpoint
+  - id: google-aip
+    conforms: true
+    evidence: Resource-oriented design, standard methods (list/get/create/patch/delete), resource names, field masks (updateMask), pageSize/pageToken pagination
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use the Google google.rpc.Status envelope (code/message/details), not application/problem+json
+  - id: pagination
+    conforms: true
+    evidence: List operations expose pageSize/pageToken parameters and nextPageToken responses
+  - id: json-api
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: scim2
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: psd2
+    conforms: false

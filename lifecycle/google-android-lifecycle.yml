@@ -1,0 +1,35 @@
+generated: '2026-06-20'
+method: searched
+source: Google API versioning/deprecation policy + apis.yml + Discovery docs
+versioning:
+  scheme: uri-path
+  current:
+    android-management-api: v1
+    google-play-developer-api: v3
+    firebase-cloud-messaging-api: v1
+    google-play-games-services-api: v1
+    google-play-emm-api: v1
+    play-integrity-api: v1
+    cloud-testing-api: v1
+    android-device-provisioning-partner-api: v1
+    android-over-the-air-api: v1
+  docs: https://cloud.google.com/apis/design/versioning
+deprecation:
+  policy_url: https://cloud.google.com/products#product-launch-stages
+  note: >-
+    Google publishes a deprecation policy for GA APIs (generally 12 months notice before
+    shutdown). Feature-level deprecations are announced in each API's release notes.
+  sunset_header: false
+sla:
+  note: Covered under Google Cloud/Google APIs terms; per-service uptime commitments where published
+  terms: https://developers.google.com/terms
+status_page: https://status.cloud.google.com/
+deprecated_apis:
+  - api: google-play-emm-api
+    status: closed-to-new-registrations
+    evidence: apis.yml description — "no longer accepting new registrations but remains available for existing integrations"
+    migration: Android Management API (https://developers.google.com/android/management)
+release_notes:
+  - api: android-management-api
+    url: https://developers.google.com/android/management/release-notes
+deprecated_operations: []

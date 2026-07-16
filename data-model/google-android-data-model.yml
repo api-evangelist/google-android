@@ -1,0 +1,48 @@
+generated: '2026-06-20'
+method: derived
+source: openapi/google-android-openapi.yml
+scope: Android Management API (the spec-bearing surface in openapi/)
+entities:
+  - name: Enterprise
+    resource_name: enterprises/{enterpriseId}
+    key: name
+    fields: [name, enterpriseDisplayName, primaryColor, logo, enabledNotificationTypes, pubsubTopic]
+  - name: Device
+    resource_name: enterprises/{enterpriseId}/devices/{deviceId}
+    key: name
+    fields: [name, userName, managementMode, state, appliedState, policyName, enrollmentTime, lastStatusReportTime]
+  - name: Policy
+    resource_name: enterprises/{enterpriseId}/policies/{policyId}
+    key: name
+    fields: [name, version, applications, passwordRequirements, cameraDisabled, screenCaptureDisabled]
+  - name: EnrollmentToken
+    resource_name: enterprises/{enterpriseId}/enrollmentTokens/{tokenId}
+    key: name
+  - name: WebApp
+    resource_name: enterprises/{enterpriseId}/webApps/{webAppId}
+    key: name
+relationships:
+  - from: Enterprise
+    to: Device
+    type: has_many
+    via: parent (enterprises/{id}/devices)
+  - from: Enterprise
+    to: Policy
+    type: has_many
+    via: parent (enterprises/{id}/policies)
+  - from: Enterprise
+    to: EnrollmentToken
+    type: has_many
+    via: parent (enterprises/{id}/enrollmentTokens)
+  - from: Enterprise
+    to: WebApp
+    type: has_many
+    via: parent (enterprises/{id}/webApps)
+  - from: Device
+    to: Policy
+    type: belongs_to
+    via: policyName (reference to a Policy resource name)
+  - from: Device
+    to: Enterprise
+    type: belongs_to
+    via: parent resource name

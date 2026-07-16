@@ -1,0 +1,36 @@
+# Google Android
+
+> Android is a mobile operating system developed by Google. Its developer platform exposes a family of REST APIs for enterprise device management, Google Play app publishing and monetization, push messaging, game services, device provisioning, app integrity, and cloud testing. All APIs authenticate with Google OAuth 2.0 and follow Google's resource-oriented API design (AIP).
+
+## APIs
+- [Android Management API](https://developers.google.com/android/management): Remote enterprise management of Android devices via policies (base https://androidmanagement.googleapis.com)
+- [Google Play Developer API](https://developers.google.com/android-publisher): Publishing and app-management, in-app purchases and subscriptions (base https://androidpublisher.googleapis.com)
+- [Firebase Cloud Messaging API](https://firebase.google.com/docs/cloud-messaging): Cross-platform push messaging to Android devices (base https://fcm.googleapis.com)
+- [Google Play Games Services API](https://developers.google.com/games/services): Achievements, leaderboards, and multiplayer for games (base https://www.googleapis.com/games/v1)
+- [Android Device Provisioning Partner API](https://developers.google.com/zero-touch): Zero-touch enrollment for enterprise devices (base https://androiddeviceprovisioning.googleapis.com)
+- [Android Over the Air API](https://developers.google.com/android/over-the-air/reference/rest): System update deployments and configurations (base https://androidovertheair.googleapis.com)
+- [Google Play EMM API](https://developers.google.com/android/work/play/emm-api/): Enterprise app distribution (closed to new registrations) (base https://androidenterprise.googleapis.com)
+- [Play Integrity API](https://developer.android.com/google/play/integrity): Verify genuine app binaries on genuine devices (base https://playintegrity.googleapis.com)
+- [Cloud Testing API](https://firebase.google.com/docs/test-lab): Test apps on real/virtual devices via Firebase Test Lab (base https://testing.googleapis.com)
+
+## Authentication
+- [OAuth 2.0 for Google APIs](https://developers.google.com/identity/protocols/oauth2): Bearer access tokens; authorization code and service-account (JWT bearer) flows
+- [OAuth scopes reference](https://developers.google.com/identity/protocols/oauth2/scopes): Per-API scope URLs (see scopes/google-android-scopes.yml)
+
+## Specs & Artifacts
+- OpenAPI (Android Management): openapi/google-android-openapi.yml
+- Authentication profile: authentication/google-android-authentication.yml
+- OAuth scopes: scopes/google-android-scopes.yml
+- Error model (google.rpc.Status): errors/google-android-problem-types.yml
+- API conventions (AIP): conventions/google-android-conventions.yml
+- Data model / ERD: data-model/google-android-data-model.yml
+- Lifecycle & versioning: lifecycle/google-android-lifecycle.yml
+- Packages / SDKs: packages/google-android-packages.yml
+- Conformance: conformance/google-android-conformance.yml
+
+## Docs
+- [Android Developers](https://developer.android.com/)
+- [Google Developers](https://developers.google.com/)
+- [Firebase Docs](https://firebase.google.com/docs)
+- [Google Cloud Status](https://status.cloud.google.com/)
+- [Security disclosure (VRP)](https://bughunters.google.com/)

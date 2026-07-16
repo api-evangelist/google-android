@@ -1,0 +1,24 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Google Android Management API
+  version: 1.0.0
+extends: openapi/google-android-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: google-android
+      x-apievangelist-api: android-management-api
+      x-apievangelist-auth: authentication/google-android-authentication.yml
+      x-apievangelist-scopes: scopes/google-android-scopes.yml
+      x-apievangelist-errors: errors/google-android-problem-types.yml
+      x-apievangelist-conventions: conventions/google-android-conventions.yml
+      x-apievangelist-data-model: data-model/google-android-data-model.yml
+      x-apievangelist-lifecycle: lifecycle/google-android-lifecycle.yml
+  - target: $.info
+    update:
+      x-error-format: google.rpc.Status
+      x-pagination: '{ style: page-token, request: [pageSize, pageToken], response: [nextPageToken] }'
+      x-versioning: uri-path (v1)
+  - target: $
+    update:
+      x-agentic-access: agentic-access/google-android-agentic-access.yml

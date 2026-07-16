@@ -5,7 +5,7 @@ type: Index
 image: https://www.android.com/static/images/logos/android-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-04-18'
+modified: '2026-06-20'
 access: 3rd-Party
 specificationVersion: '0.19'
 tags:
@@ -181,6 +181,34 @@ common:
     url: authentication/google-android-authentication.yml
   - type: OAuthScopes
     url: scopes/google-android-scopes.yml
+  - type: Packages
+    url: packages/google-android-packages.yml
+  - type: WellKnown
+    url: well-known/google-android-well-known.yml
+  - type: SecurityTxt
+    url: well-known/google-android-security.txt
+  - type: MCPServer
+    url: mcp/google-android-mcp.yml
+  - type: LLMsTxt
+    url: llms/google-android-llms.txt
+  - type: Overlay
+    url: overlays/google-android-android-management-overlay.yaml
+  - type: Conformance
+    url: conformance/google-android-conformance.yml
+  - type: ErrorCatalog
+    url: errors/google-android-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/google-android-lifecycle.yml
+  - type: Conventions
+    url: conventions/google-android-conventions.yml
+  - type: ChangeLog
+    url: changelog/google-android-changelog.yml
+  - type: DataModel
+    url: data-model/google-android-data-model.yml
+  - type: VulnerabilityDisclosure
+    url: security/google-android-vulnerability-disclosure.yml
+  - type: TrustCenter
+    url: security/google-android-trust-center.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/android_by_google
   - type: Portal

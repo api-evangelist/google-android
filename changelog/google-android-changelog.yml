@@ -1,0 +1,39 @@
+generated: '2026-06-20'
+method: searched
+source: https://developers.google.com/android/management/release-notes
+scope: Android Management API
+scheme: dated release notes (monthly cadence), stable v1
+current_version: v1
+entries:
+  - date: '2026-05'
+    highlights:
+      - SHA-256 now used for signing certificates in application reporting (replacing deprecated SHA-1)
+      - Improved Factory Reset Protection (FRP) handling for COPE devices
+    breaking: false
+  - date: '2026-04'
+    highlights:
+      - New AutofillPolicy allows disabling the autofill service
+      - AMAPI SDK v1.8.0 released
+      - Clarified that provisioning info remains available for 24 hours post-enrollment
+    breaking: false
+  - date: '2026-03'
+    highlights:
+      - Default value for enterpriseDisplayNameVisibility changed to ENTERPRISE_DISPLAY_NAME_VISIBLE
+      - EAP-PWD supported as EAP outer method in Open Network Configuration
+    breaking: true
+  - date: '2026-02'
+    highlights:
+      - Private DNS management via privateDnsSettings on Android 10+
+      - Model Context Protocol (MCP) integration preview introduced
+    breaking: false
+  - date: '2026-01'
+    highlights:
+      - New userInitiatedAddEsimSettings policy for user-initiated eSIM addition on Android 15+
+      - AMAPI SDK v1.7.1 released with enhanced device trust logging
+      - Advertising ID usage prohibited when accessing device trust signals
+    breaking: false
+  - date: '2025-11'
+    highlights:
+      - Device enrollment now requires Android Enterprise registration and approval
+      - Clarified CUSTOM install type signing key certificate requirements
+    breaking: true

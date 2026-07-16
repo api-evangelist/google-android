@@ -1,0 +1,47 @@
+generated: '2026-06-20'
+method: searched
+source: live probes of API base hosts + Google identity/security surfaces
+notes: >-
+  The Android/Google API base hosts (androidmanagement.googleapis.com, etc.) do
+  not serve /.well-known/ discovery documents (all 404). OAuth/OIDC discovery for
+  these APIs is served by Google's shared identity host accounts.google.com, and
+  Google's org-wide security.txt is served from www.google.com.
+hosts:
+  - host: https://accounts.google.com
+    role: OAuth 2.0 / OpenID Connect authorization server for all Google Android APIs
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: google-android-openid-configuration.json
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        file: google-android-oauth-authorization-server.json
+  - host: https://www.google.com
+    role: Google organization-wide security disclosure
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: google-android-security.txt
+  - host: https://androidmanagement.googleapis.com
+    role: Android Management API base host
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://androidpublisher.googleapis.com
+    role: Google Play Developer API base host
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://fcm.googleapis.com
+    role: Firebase Cloud Messaging API base host
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/security.txt
+        status: 404

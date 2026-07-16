@@ -1,17 +1,43 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/google-android-openapi.yml
+generated: '2026-06-20'
+method: searched
+source: Google API Discovery documents ($discovery/rest) for each API
+docs: https://developers.google.com/identity/protocols/oauth2/scopes
+notes: >-
+  All Google Android APIs authorize via Google OAuth 2.0 (authorization code for
+  users, service-account JWT bearer for server-to-server). Scopes below are taken
+  verbatim from each API's authoritative Google Discovery document. The Android
+  Device Provisioning Partner API and Android Over the Air API do not declare
+  public oauth2 scopes in their Discovery docs (partner/allow-listed access).
 schemes:
-- name: OAuth2
-  source: openapi/google-android-openapi.yml
-  flows:
-  - flow: authorizationCode
+  - name: OAuth2
+    type: authorizationCode
     authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
     tokenUrl: https://oauth2.googleapis.com/token
 scopes:
-- scope: androidmanagement
-  description: Manage Android devices and apps for your customers
-  flows:
-  - authorizationCode
-  sources:
-  - openapi/google-android-openapi.yml
+  - scope: https://www.googleapis.com/auth/androidmanagement
+    description: Manage Android devices and apps for your customers
+    apis: [android-management-api]
+  - scope: https://www.googleapis.com/auth/androidpublisher
+    description: View and manage your Google Play Developer account
+    apis: [google-play-developer-api, google-play-games-services-api]
+  - scope: https://www.googleapis.com/auth/androidenterprise
+    description: Manage corporate Android devices
+    apis: [google-play-emm-api]
+  - scope: https://www.googleapis.com/auth/firebase.messaging
+    description: Send messages and manage messaging subscriptions for your Firebase applications
+    apis: [firebase-cloud-messaging-api]
+  - scope: https://www.googleapis.com/auth/games
+    description: Create, edit, and delete your Google Play Games activity
+    apis: [google-play-games-services-api]
+  - scope: https://www.googleapis.com/auth/drive.appdata
+    description: See, create, and delete its own configuration data in your Google Drive
+    apis: [google-play-games-services-api]
+  - scope: https://www.googleapis.com/auth/playintegrity
+    description: Access the Play Integrity API to verify device and app integrity
+    apis: [play-integrity-api]
+  - scope: https://www.googleapis.com/auth/cloud-platform
+    description: See, edit, configure, and delete your Google Cloud data and see the email address for your Google Account
+    apis: [firebase-cloud-messaging-api, cloud-testing-api]
+  - scope: https://www.googleapis.com/auth/cloud-platform.read-only
+    description: View your data across Google Cloud services and see the email address of your Google Account
+    apis: [cloud-testing-api]

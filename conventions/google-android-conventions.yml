@@ -1,0 +1,47 @@
+generated: '2026-06-20'
+method: searched
+source: https://google.aip.dev/ + openapi/google-android-openapi.yml + Google Discovery docs
+notes: >-
+  Google Android APIs follow Google's API Improvement Proposals (AIP) resource-oriented
+  design. Semantics below are cross-cutting across the APIs in this repo.
+authentication:
+  style: OAuth 2.0 Bearer access token (Authorization header)
+  see: authentication/google-android-authentication.yml
+resource_names:
+  style: hierarchical resource names (e.g. enterprises/{id}, enterprises/{id}/devices/{id})
+  note: names function as stable identifiers and are passed as the `name`/`parent` path fields
+pagination:
+  style: page-token
+  request_params: [pageSize, pageToken]
+  response_fields: [nextPageToken]
+  aip: https://google.aip.dev/158
+field_masks:
+  update: updateMask (query param, FieldMask) on patch/update operations
+  read: fields / $fields partial-response mask (system parameter, all APIs)
+  aip: https://google.aip.dev/134
+idempotency:
+  header: none
+  note: >-
+    No client idempotency-key header. Create operations under a stable resource name
+    are effectively idempotent; some resources support ETag optimistic concurrency.
+versioning:
+  scheme: uri-path (v1, v3); major version in the path, stable channel
+  see: lifecycle/google-android-lifecycle.yml
+media_type: application/json
+error_envelope:
+  format: google.rpc.Status
+  shape: '{ "error": { "code": <http-status>, "message": <string>, "status": <CANONICAL_CODE>, "details": [ ... ] } }'
+  see: errors/google-android-problem-types.yml
+system_parameters:
+  - name: fields
+    description: partial response field mask
+  - name: quotaUser / userIp
+    description: per-user quota attribution
+  - name: alt
+    description: response format (json default)
+rate_limit_signaling:
+  style: HTTP 429 RESOURCE_EXHAUSTED with google.rpc.Status; per-project quotas managed in Google Cloud console
+  see: rate-limits/google-android-rate-limits.yml
+long_running_operations:
+  style: google.longrunning.Operation resources for async work (where applicable)
+  aip: https://google.aip.dev/151

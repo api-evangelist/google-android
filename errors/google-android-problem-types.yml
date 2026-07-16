@@ -1,0 +1,48 @@
+generated: '2026-06-20'
+method: searched
+format: google.rpc.Status
+source: https://cloud.google.com/apis/design/errors
+envelope:
+  field: error
+  shape: '{ "error": { "code": <int http status>, "message": <string>, "status": <CANONICAL_CODE>, "details": [ { "@type": "type.googleapis.com/google.rpc.ErrorInfo", ... } ] } }'
+  note: >-
+    The OpenAPI in this repo declares only 200 responses; error semantics are the shared
+    Google API error model (google.rpc.Status / google.rpc.Code), documented at the source
+    URL and returned uniformly across all Android/Google APIs.
+problems:
+  - status: 400
+    canonical: INVALID_ARGUMENT
+    title: Invalid argument
+    remediation: Fix the malformed request field; check required parameters and field formats.
+  - status: 401
+    canonical: UNAUTHENTICATED
+    title: Missing or invalid credentials
+    remediation: Provide a valid OAuth 2.0 Bearer access token; refresh if expired.
+  - status: 403
+    canonical: PERMISSION_DENIED
+    title: Permission denied
+    remediation: Grant the required OAuth scope / IAM role; verify the caller can access the resource.
+  - status: 404
+    canonical: NOT_FOUND
+    title: Resource not found
+    remediation: Verify the resource name/path; the resource may not exist or was deleted.
+  - status: 409
+    canonical: ABORTED / ALREADY_EXISTS
+    title: Conflict
+    remediation: Resolve the concurrency conflict or duplicate; retry with current ETag.
+  - status: 429
+    canonical: RESOURCE_EXHAUSTED
+    title: Quota exceeded / rate limited
+    remediation: Back off and retry; request higher quota in the Google Cloud console.
+  - status: 500
+    canonical: INTERNAL
+    title: Internal server error
+    remediation: Retry with exponential backoff; contact support if persistent.
+  - status: 503
+    canonical: UNAVAILABLE
+    title: Service unavailable
+    remediation: Retry with exponential backoff; check https://status.cloud.google.com/.
+  - status: 504
+    canonical: DEADLINE_EXCEEDED
+    title: Deadline exceeded
+    remediation: Retry; reduce request size or increase client timeout.
