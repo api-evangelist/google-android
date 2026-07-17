@@ -209,6 +209,30 @@ common:
     url: security/google-android-vulnerability-disclosure.yml
   - type: TrustCenter
     url: security/google-android-trust-center.yml
+  - type: Arazzo
+    url: arazzo/google-android-enterprise-onboarding-workflow.yml
+    name: Google Android Onboard an Enterprise
+  - type: Arazzo
+    url: arazzo/google-android-device-enrollment-workflow.yml
+    name: Google Android Enroll a Device and Confirm It Checked In
+  - type: Arazzo
+    url: arazzo/google-android-policy-rollout-workflow.yml
+    name: Google Android Roll Out a Policy Change and Verify It Applied
+  - type: Arazzo
+    url: arazzo/google-android-remote-device-command-workflow.yml
+    name: Google Android Issue a Remote Command and Poll the Device
+  - type: Arazzo
+    url: arazzo/google-android-fleet-inventory-audit-workflow.yml
+    name: Google Android Audit an Enterprise Fleet
+  - type: Arazzo
+    url: arazzo/google-android-web-app-publishing-workflow.yml
+    name: Google Android Publish a Web App and Push It to a Policy
+  - type: Arazzo
+    url: arazzo/google-android-notification-configuration-workflow.yml
+    name: Google Android Configure Enterprise Pub/Sub Notifications
+  - type: Arazzo
+    url: arazzo/google-android-enterprise-offboarding-workflow.yml
+    name: Google Android Offboard an Enterprise
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/android_by_google
   - type: Portal

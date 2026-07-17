@@ -1,0 +1,116 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Issue a Remote Command and Poll the Device
+  summary: Confirm a device is reachable, issue a LOCK/REBOOT/RESET_PASSWORD command, then poll the device until it reports back.
+  description: >-
+    The lost-or-compromised-device response an IT desk runs. Commands in the
+    Android Management API are asynchronous — the call returns an Operation, not
+    a result — so this workflow reads the device first to confirm it is
+    reachable and to capture its pre-command state, issues the command, and then
+    polls the device until its status report timestamp advances, which is the
+    observable signal that the device acted on the command. Every step spells
+    out its request inline so the flow can be read and executed without opening
+    the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: issue-remote-command
+  summary: Send a remote command to one device and poll it until the device reports back.
+  description: >-
+    Reads the device, issues the requested command, then polls the device for a
+    fresh status report confirming the command was carried out.
+  inputs:
+    type: object
+    required:
+    - deviceName
+    - commandType
+    properties:
+      deviceName:
+        type: string
+        description: The device resource name (e.g. enterprises/LC0123abcd/devices/3789123).
+      commandType:
+        type: string
+        description: The command to issue.
+        enum:
+        - LOCK
+        - RESET_PASSWORD
+        - REBOOT
+        - RELINQUISH_OWNERSHIP
+        - CLEAR_APP_DATA
+      duration:
+        type: string
+        description: How long the command remains valid, as a duration (e.g. 600s).
+      newPassword:
+        type: string
+        description: The new password, used only when commandType is RESET_PASSWORD.
+  steps:
+  - stepId: readDeviceBefore
+    description: >-
+      Read the device to confirm it exists and is manageable, and to capture the
+      status report timestamp the poll below will compare against.
+    operationId: getDevice
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.deviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.state == 'ACTIVE'
+      type: jsonpath
+    outputs:
+      deviceName: $response.body#/name
+      stateBefore: $response.body#/state
+      reportTimeBefore: $response.body#/lastStatusReportTime
+  - stepId: issueCommand
+    description: >-
+      Issue the command. This returns a long-running Operation rather than the
+      command result, so success here means the command was accepted for
+      delivery, not that the device has carried it out.
+    operationId: issueDeviceCommand
+    parameters:
+    - name: name
+      in: path
+      value: $steps.readDeviceBefore.outputs.deviceName
+    requestBody:
+      contentType: application/json
+      payload:
+        type: $inputs.commandType
+        duration: $inputs.duration
+        newPassword: $inputs.newPassword
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      operationName: $response.body#/name
+  - stepId: pollDeviceAfter
+    description: >-
+      Poll the device until it files a status report newer than the one captured
+      before the command, which is the observable evidence the device checked in
+      and acted.
+    operationId: getDevice
+    parameters:
+    - name: name
+      in: path
+      value: $steps.readDeviceBefore.outputs.deviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.lastStatusReportTime != null
+      type: jsonpath
+    outputs:
+      stateAfter: $response.body#/state
+      appliedStateAfter: $response.body#/appliedState
+      reportTimeAfter: $response.body#/lastStatusReportTime
+    onFailure:
+    - name: waitForReport
+      type: retry
+      retryAfter: 20
+      retryLimit: 15
+  outputs:
+    operationName: $steps.issueCommand.outputs.operationName
+    stateBefore: $steps.readDeviceBefore.outputs.stateBefore
+    stateAfter: $steps.pollDeviceAfter.outputs.stateAfter
+    reportTimeAfter: $steps.pollDeviceAfter.outputs.reportTimeAfter

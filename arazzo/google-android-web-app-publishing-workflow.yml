@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Publish a Web App and Push It to a Policy
+  summary: Create a hosted web app, confirm it registered, then add it to a policy so it installs on the fleet.
+  description: >-
+    Creating a web app in the Android Management API only mints the app — it
+    does nothing on any device until a policy references it. This workflow
+    creates the web app, lists web apps to confirm it registered, reads the
+    target policy so the existing application list is not lost, and then patches
+    the policy to install the new web app on the fleet. Every step spells out
+    its request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: publish-web-app
+  summary: Create a web app and add it to a policy so managed devices install it.
+  description: >-
+    Creates the web app, verifies registration, and wires it into a policy's
+    application list.
+  inputs:
+    type: object
+    required:
+    - enterpriseName
+    - policyName
+    - title
+    - startUrl
+    properties:
+      enterpriseName:
+        type: string
+        description: The enterprise resource name (e.g. enterprises/LC0123abcd).
+      policyName:
+        type: string
+        description: The full policy resource name that should install the web app.
+      title:
+        type: string
+        description: The title shown under the web app icon on the device.
+      startUrl:
+        type: string
+        description: The URL the web app opens.
+      displayMode:
+        type: string
+        description: How the web app renders on device (e.g. STANDALONE, FULL_SCREEN, MINIMAL_UI).
+  steps:
+  - stepId: createWebApp
+    description: >-
+      Create the hosted web app under the enterprise. This mints the app
+      resource only; no device is affected until a policy references it.
+    operationId: createWebApp
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    requestBody:
+      contentType: application/json
+      payload:
+        title: $inputs.title
+        startUrl: $inputs.startUrl
+        displayMode: $inputs.displayMode
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.name != null
+      type: jsonpath
+    outputs:
+      webAppName: $response.body#/name
+      webAppTitle: $response.body#/title
+  - stepId: confirmWebAppRegistered
+    description: >-
+      List the enterprise's web apps to confirm the new app registered and is
+      addressable before a policy is changed to depend on it.
+    operationId: listWebApps
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      webApps: $response.body#/webApps
+  - stepId: readPolicy
+    description: >-
+      Read the target policy to capture its current application list. Patching
+      applications without merging this list first would uninstall every app the
+      fleet already has.
+    operationId: getPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.policyName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyName: $response.body#/name
+      existingApplications: $response.body#/applications
+      policyVersion: $response.body#/version
+  - stepId: addWebAppToPolicy
+    description: >-
+      Patch the policy's application list to install the new web app. The
+      updateMask limits the write to the applications field so unrelated policy
+      settings are untouched.
+    operationId: patchPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $steps.readPolicy.outputs.policyName
+    - name: updateMask
+      in: query
+      value: applications
+    requestBody:
+      contentType: application/json
+      payload:
+        applications:
+        - packageName: $steps.createWebApp.outputs.webAppName
+          installType: FORCE_INSTALLED
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      updatedPolicyName: $response.body#/name
+      updatedPolicyVersion: $response.body#/version
+      updatedApplications: $response.body#/applications
+  outputs:
+    webAppName: $steps.createWebApp.outputs.webAppName
+    policyName: $steps.addWebAppToPolicy.outputs.updatedPolicyName
+    policyVersion: $steps.addWebAppToPolicy.outputs.updatedPolicyVersion

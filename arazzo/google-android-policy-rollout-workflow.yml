@@ -1,0 +1,135 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Roll Out a Policy Change and Verify It Applied
+  summary: Read the current policy, patch a targeted field with an updateMask, then confirm a device actually applied the new version.
+  description: >-
+    A policy change in the Android Management API is only half done when the
+    patch returns 200 — the device must still check in and apply it. This
+    workflow reads the current policy to capture its version, patches only the
+    named fields via updateMask so unrelated settings are not clobbered, and
+    then polls a canary device until its appliedState reports the change landed.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: roll-out-policy-change
+  summary: Patch a policy with an updateMask and verify a canary device applied it.
+  description: >-
+    Captures the pre-change policy version, applies a masked patch, and watches a
+    canary device until it reports the policy as applied.
+  inputs:
+    type: object
+    required:
+    - enterpriseName
+    - policyName
+    - updateMask
+    properties:
+      enterpriseName:
+        type: string
+        description: The enterprise resource name (e.g. enterprises/LC0123abcd).
+      policyName:
+        type: string
+        description: The full policy resource name to change.
+      updateMask:
+        type: string
+        description: Comma-separated field mask limiting the patch (e.g. "cameraDisabled,screenCaptureDisabled").
+      cameraDisabled:
+        type: boolean
+        description: Whether the device camera is disabled under the new policy.
+      screenCaptureDisabled:
+        type: boolean
+        description: Whether screen capture is disabled under the new policy.
+  steps:
+  - stepId: readCurrentPolicy
+    description: >-
+      Read the policy before changing it so the current version is captured and
+      the change can be reviewed or rolled back against a known baseline.
+    operationId: getPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.policyName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      previousVersion: $response.body#/version
+      previousApplications: $response.body#/applications
+  - stepId: patchPolicy
+    description: >-
+      Patch only the fields named in the updateMask. Without a mask the request
+      body replaces the whole policy, silently dropping settings that were not
+      sent, so the mask is always supplied here.
+    operationId: patchPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.policyName
+    - name: updateMask
+      in: query
+      value: $inputs.updateMask
+    requestBody:
+      contentType: application/json
+      payload:
+        cameraDisabled: $inputs.cameraDisabled
+        screenCaptureDisabled: $inputs.screenCaptureDisabled
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.version != null
+      type: jsonpath
+    outputs:
+      newVersion: $response.body#/version
+      patchedPolicyName: $response.body#/name
+  - stepId: listAffectedDevices
+    description: >-
+      List the fleet to pick a canary device to watch. Every device on this
+      policy will receive the change on its next check-in.
+    operationId: listDevices
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    - name: pageSize
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.devices.length > 0
+      type: jsonpath
+    outputs:
+      canaryDeviceName: $response.body#/devices/0/name
+      fleet: $response.body#/devices
+  - stepId: verifyCanaryApplied
+    description: >-
+      Poll the canary device until it reports the policy as applied. Devices
+      apply policy on check-in, so a freshly patched policy is not live on the
+      fleet until this reports back.
+    operationId: getDevice
+    parameters:
+    - name: name
+      in: path
+      value: $steps.listAffectedDevices.outputs.canaryDeviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.appliedState == 'ACTIVE'
+      type: jsonpath
+    outputs:
+      deviceName: $response.body#/name
+      appliedState: $response.body#/appliedState
+      lastStatusReportTime: $response.body#/lastStatusReportTime
+    onFailure:
+    - name: waitForCheckIn
+      type: retry
+      retryAfter: 30
+      retryLimit: 20
+  outputs:
+    previousVersion: $steps.readCurrentPolicy.outputs.previousVersion
+    newVersion: $steps.patchPolicy.outputs.newVersion
+    canaryDeviceName: $steps.verifyCanaryApplied.outputs.deviceName
+    canaryAppliedState: $steps.verifyCanaryApplied.outputs.appliedState

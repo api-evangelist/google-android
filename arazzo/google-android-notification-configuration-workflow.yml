@@ -1,0 +1,102 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Configure Enterprise Pub/Sub Notifications
+  summary: Read the enterprise, patch its Pub/Sub topic and notification types with an updateMask, then read back to confirm.
+  description: >-
+    Without notifications an EMM integration has to poll every device to notice
+    anything, so wiring the enterprise to a Pub/Sub topic is a standard
+    hardening step. This workflow reads the enterprise to capture the current
+    notification configuration, patches the topic and enabled notification types
+    under an updateMask so branding fields are not clobbered, and reads the
+    enterprise back to confirm the change persisted. Every step spells out its
+    request inline so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: configure-enterprise-notifications
+  summary: Point an enterprise at a Pub/Sub topic and confirm the notification types stuck.
+  description: >-
+    Captures the prior notification configuration, applies a masked patch, and
+    verifies the enterprise reads back with the intended topic and types.
+  inputs:
+    type: object
+    required:
+    - enterpriseName
+    - pubsubTopic
+    properties:
+      enterpriseName:
+        type: string
+        description: The enterprise resource name (e.g. enterprises/LC0123abcd).
+      pubsubTopic:
+        type: string
+        description: The Pub/Sub topic to publish to (e.g. projects/my-project/topics/android-notifications).
+      enabledNotificationTypes:
+        type: array
+        description: The notification types to enable (e.g. ENROLLMENT, STATUS_REPORT, COMMAND).
+        items:
+          type: string
+  steps:
+  - stepId: readEnterpriseBefore
+    description: >-
+      Read the enterprise to capture the notification configuration in force
+      before the change, so the patch can be reviewed or reverted.
+    operationId: getEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enterpriseName: $response.body#/name
+      previousTopic: $response.body#/pubsubTopic
+      previousNotificationTypes: $response.body#/enabledNotificationTypes
+  - stepId: patchNotifications
+    description: >-
+      Patch the Pub/Sub topic and notification types. The updateMask restricts
+      the write to these two fields so the enterprise display name, logo, and
+      primary color are left intact.
+    operationId: patchEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $steps.readEnterpriseBefore.outputs.enterpriseName
+    - name: updateMask
+      in: query
+      value: pubsubTopic,enabledNotificationTypes
+    requestBody:
+      contentType: application/json
+      payload:
+        pubsubTopic: $inputs.pubsubTopic
+        enabledNotificationTypes: $inputs.enabledNotificationTypes
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      patchedTopic: $response.body#/pubsubTopic
+      patchedNotificationTypes: $response.body#/enabledNotificationTypes
+  - stepId: confirmNotifications
+    description: >-
+      Read the enterprise back to confirm the topic persisted. A topic the
+      Android Management service account cannot publish to is rejected here
+      rather than failing silently later.
+    operationId: getEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $steps.readEnterpriseBefore.outputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.pubsubTopic != null
+      type: jsonpath
+    outputs:
+      confirmedTopic: $response.body#/pubsubTopic
+      confirmedNotificationTypes: $response.body#/enabledNotificationTypes
+  outputs:
+    previousTopic: $steps.readEnterpriseBefore.outputs.previousTopic
+    confirmedTopic: $steps.confirmNotifications.outputs.confirmedTopic
+    confirmedNotificationTypes: $steps.confirmNotifications.outputs.confirmedNotificationTypes

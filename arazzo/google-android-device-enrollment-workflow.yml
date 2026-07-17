@@ -1,0 +1,146 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Enroll a Device and Confirm It Checked In
+  summary: Confirm the target policy exists, mint an enrollment token, then poll the fleet until the new device appears.
+  description: >-
+    The provisioning flow an operator runs for each device or batch of devices.
+    The workflow confirms the policy the device will land on, audits any
+    outstanding tokens so stale ones are not re-used, mints a fresh short-lived
+    token, and then polls the device list until the newly enrolled device checks
+    in so the operator can verify the device landed on the intended policy.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: enroll-device
+  summary: Issue an enrollment token for a known policy and verify the device enrolls against it.
+  description: >-
+    Verifies the policy, mints a token, and then reads the fleet back to confirm
+    the device enrolled and applied the intended policy.
+  inputs:
+    type: object
+    required:
+    - enterpriseName
+    - policyName
+    properties:
+      enterpriseName:
+        type: string
+        description: The enterprise resource name (e.g. enterprises/LC0123abcd).
+      policyName:
+        type: string
+        description: The full policy resource name the device should enroll onto.
+      tokenDuration:
+        type: string
+        description: How long the enrollment token stays valid, as a duration (e.g. 3600s).
+      username:
+        type: string
+        description: Optional account identifier to associate with the enrolled device.
+  steps:
+  - stepId: confirmPolicy
+    description: >-
+      Read the policy the device will enroll onto. Enrolling against a policy
+      name that does not exist yields a device stuck without configuration, so
+      this is checked before a token is minted.
+    operationId: getPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.policyName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.name != null
+      type: jsonpath
+    outputs:
+      confirmedPolicyName: $response.body#/name
+      policyVersion: $response.body#/version
+  - stepId: auditExistingTokens
+    description: >-
+      List the enrollment tokens already outstanding for this enterprise so an
+      operator can see whether a valid token exists before minting another.
+    operationId: listEnrollmentTokens
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      existingTokens: $response.body#/enrollmentTokens
+  - stepId: createEnrollmentToken
+    description: >-
+      Mint a short-lived enrollment token bound to the confirmed policy. The
+      qrCode value is what the factory-reset device scans.
+    operationId: createEnrollmentToken
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    requestBody:
+      contentType: application/json
+      payload:
+        policyName: $steps.confirmPolicy.outputs.confirmedPolicyName
+        duration: $inputs.tokenDuration
+        additionalData: arazzo-device-enrollment
+        user:
+          accountIdentifier: $inputs.username
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.value != null
+      type: jsonpath
+    outputs:
+      tokenName: $response.body#/name
+      tokenValue: $response.body#/value
+      qrCode: $response.body#/qrCode
+  - stepId: pollForDevice
+    description: >-
+      Poll the enterprise device list until the newly provisioned device checks
+      in. Enrollment is asynchronous from the API's point of view, so this step
+      is retried until a device is present.
+    operationId: listDevices
+    parameters:
+    - name: parent
+      in: path
+      value: $inputs.enterpriseName
+    - name: pageSize
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.devices.length > 0
+      type: jsonpath
+    outputs:
+      enrolledDeviceName: $response.body#/devices/0/name
+      enrolledDeviceState: $response.body#/devices/0/state
+    onFailure:
+    - name: waitForCheckIn
+      type: retry
+      retryAfter: 15
+      retryLimit: 20
+  - stepId: verifyDevicePolicy
+    description: >-
+      Read the enrolled device and confirm it applied the policy the token was
+      bound to, rather than merely appearing in the fleet.
+    operationId: getDevice
+    parameters:
+    - name: name
+      in: path
+      value: $steps.pollForDevice.outputs.enrolledDeviceName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deviceName: $response.body#/name
+      appliedPolicyName: $response.body#/policyName
+      managementMode: $response.body#/managementMode
+      enrollmentTime: $response.body#/enrollmentTime
+  outputs:
+    enrollmentTokenValue: $steps.createEnrollmentToken.outputs.tokenValue
+    enrollmentQrCode: $steps.createEnrollmentToken.outputs.qrCode
+    deviceName: $steps.verifyDevicePolicy.outputs.deviceName
+    appliedPolicyName: $steps.verifyDevicePolicy.outputs.appliedPolicyName

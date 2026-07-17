@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Audit an Enterprise Fleet
+  summary: Walk enterprises, devices, and policies read-only to produce a fleet inventory an auditor can sign off on.
+  description: >-
+    A read-only reconciliation an EMM provider runs on a schedule. The workflow
+    lists the enterprises owned by a project, reads the target enterprise, then
+    walks its devices and policies so an auditor can reconcile which devices are
+    on which policy and spot devices that have drifted or gone silent. Nothing
+    in this flow mutates state, so it is safe to run against production. Every
+    step spells out its request inline so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: audit-fleet-inventory
+  summary: Produce a read-only inventory of an enterprise, its devices, and its policies.
+  description: >-
+    Lists enterprises for a project, reads the target enterprise, then collects
+    its device fleet and policy set for reconciliation.
+  inputs:
+    type: object
+    required:
+    - projectId
+    - enterpriseName
+    properties:
+      projectId:
+        type: string
+        description: The Google Cloud project id that owns the enterprises.
+      enterpriseName:
+        type: string
+        description: The enterprise resource name to audit (e.g. enterprises/LC0123abcd).
+      pageSize:
+        type: integer
+        description: How many records to request per page.
+  steps:
+  - stepId: listEnterprises
+    description: >-
+      List the enterprises bound to this project so the audit is scoped to
+      enterprises the caller actually owns.
+    operationId: listEnterprises
+    parameters:
+    - name: projectId
+      in: query
+      value: $inputs.projectId
+    - name: pageSize
+      in: query
+      value: $inputs.pageSize
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enterprises: $response.body#/enterprises
+      nextPageToken: $response.body#/nextPageToken
+  - stepId: readEnterprise
+    description: >-
+      Read the enterprise under audit to capture its display name and which
+      notification types are enabled — a fleet with notifications off is a
+      common source of stale device state.
+    operationId: getEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enterpriseName: $response.body#/name
+      displayName: $response.body#/enterpriseDisplayName
+      enabledNotificationTypes: $response.body#/enabledNotificationTypes
+      pubsubTopic: $response.body#/pubsubTopic
+  - stepId: listDevices
+    description: >-
+      Collect the device fleet, including each device's state, applied state,
+      and last status report time, which together reveal silent or drifted
+      devices.
+    operationId: listDevices
+    parameters:
+    - name: parent
+      in: path
+      value: $steps.readEnterprise.outputs.enterpriseName
+    - name: pageSize
+      in: query
+      value: $inputs.pageSize
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      devices: $response.body#/devices
+      devicesNextPageToken: $response.body#/nextPageToken
+      firstDevicePolicyName: $response.body#/devices/0/policyName
+  - stepId: listPolicies
+    description: >-
+      Collect every policy defined for the enterprise so device policy
+      assignments can be reconciled against policies that actually exist.
+    operationId: listPolicies
+    parameters:
+    - name: parent
+      in: path
+      value: $steps.readEnterprise.outputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policies: $response.body#/policies
+  - stepId: inspectAppliedPolicy
+    description: >-
+      Read in full the policy the first device reports it is on, so the audit
+      records the actual settings the fleet is running rather than just a name.
+    operationId: getPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $steps.listDevices.outputs.firstDevicePolicyName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyName: $response.body#/name
+      policyVersion: $response.body#/version
+      cameraDisabled: $response.body#/cameraDisabled
+      screenCaptureDisabled: $response.body#/screenCaptureDisabled
+      passwordRequirements: $response.body#/passwordRequirements
+  outputs:
+    enterprises: $steps.listEnterprises.outputs.enterprises
+    devices: $steps.listDevices.outputs.devices
+    policies: $steps.listPolicies.outputs.policies
+    auditedPolicyName: $steps.inspectAppliedPolicy.outputs.policyName
+    auditedPolicyVersion: $steps.inspectAppliedPolicy.outputs.policyVersion

@@ -1,0 +1,119 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Offboard an Enterprise
+  summary: Inventory the fleet, relinquish ownership of each managed device, then delete the enterprise.
+  description: >-
+    The teardown flow run when a customer leaves. Order matters and is
+    destructive: deleting an enterprise while devices are still bound to it
+    leaves those devices managed by an enterprise that no longer exists, so the
+    fleet is inventoried and each device is released with a
+    RELINQUISH_OWNERSHIP command before the enterprise itself is deleted. Run
+    this only against an enterprise that is genuinely being retired. Every step
+    spells out its request inline so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: offboard-enterprise
+  summary: Release every managed device and then delete the enterprise. Destructive and irreversible.
+  description: >-
+    Lists the fleet, relinquishes ownership of each device so it leaves
+    management cleanly, then deletes the enterprise resource.
+  inputs:
+    type: object
+    required:
+    - enterpriseName
+    properties:
+      enterpriseName:
+        type: string
+        description: The enterprise resource name to retire (e.g. enterprises/LC0123abcd).
+      commandDuration:
+        type: string
+        description: How long each relinquish command remains valid, as a duration (e.g. 600s).
+  steps:
+  - stepId: confirmEnterprise
+    description: >-
+      Read the enterprise and capture its display name so an operator can
+      confirm they are retiring the enterprise they intended before anything
+      destructive runs.
+    operationId: getEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $inputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enterpriseName: $response.body#/name
+      displayName: $response.body#/enterpriseDisplayName
+  - stepId: inventoryFleet
+    description: >-
+      List every device still bound to the enterprise. This is the set that must
+      be released before the enterprise can be deleted safely.
+    operationId: listDevices
+    parameters:
+    - name: parent
+      in: path
+      value: $steps.confirmEnterprise.outputs.enterpriseName
+    - name: pageSize
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      devices: $response.body#/devices
+      firstDeviceName: $response.body#/devices/0/name
+      nextPageToken: $response.body#/nextPageToken
+    onSuccess:
+    - name: fleetHasDevices
+      type: goto
+      stepId: relinquishDevice
+      criteria:
+      - context: $response.body
+        condition: $.devices.length > 0
+        type: jsonpath
+    - name: fleetEmpty
+      type: goto
+      stepId: deleteEnterprise
+      criteria:
+      - context: $response.body
+        condition: $.devices.length == 0
+        type: jsonpath
+  - stepId: relinquishDevice
+    description: >-
+      Release a managed device from the enterprise. Repeat this step for every
+      device returned by the inventory, paging through nextPageToken, before
+      continuing to the delete.
+    operationId: issueDeviceCommand
+    parameters:
+    - name: name
+      in: path
+      value: $steps.inventoryFleet.outputs.firstDeviceName
+    requestBody:
+      contentType: application/json
+      payload:
+        type: RELINQUISH_OWNERSHIP
+        duration: $inputs.commandDuration
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      operationName: $response.body#/name
+  - stepId: deleteEnterprise
+    description: >-
+      Delete the enterprise. This is irreversible: the enterprise name, its
+      policies, and its enrollment tokens cannot be recovered afterwards.
+    operationId: deleteEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $steps.confirmEnterprise.outputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      deletedEnterpriseName: $steps.confirmEnterprise.outputs.enterpriseName
+  outputs:
+    retiredEnterpriseName: $steps.deleteEnterprise.outputs.deletedEnterpriseName
+    releasedDevices: $steps.inventoryFleet.outputs.devices

@@ -1,0 +1,150 @@
+arazzo: 1.0.1
+info:
+  title: Google Android Onboard an Enterprise
+  summary: Bind a signup token to a new enterprise, attach a baseline policy, and mint a first enrollment token.
+  description: >-
+    The canonical day-one flow for an EMM provider adopting the Android
+    Management API. The workflow exchanges the signup token for a bound
+    enterprise resource, reads the enterprise back to confirm the binding,
+    writes a baseline policy that every enrolled device will inherit, and mints
+    the first enrollment token operators can turn into a provisioning QR code.
+    Every step spells out its request inline so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: androidManagementApi
+  url: ../openapi/google-android-openapi.yml
+  type: openapi
+workflows:
+- workflowId: onboard-enterprise
+  summary: Create an enterprise, give it a baseline policy, and issue an enrollment token.
+  description: >-
+    Completes the signup handshake started in the Google-hosted signup UI, then
+    leaves the enterprise ready to enroll its first device.
+  inputs:
+    type: object
+    required:
+    - projectId
+    - signupUrlName
+    - enterpriseToken
+    - enterpriseDisplayName
+    - policyId
+    properties:
+      projectId:
+        type: string
+        description: The Google Cloud project id that will own the enterprise.
+      signupUrlName:
+        type: string
+        description: The signup URL name returned when the signup URL was created (e.g. signupUrls/C1234).
+      enterpriseToken:
+        type: string
+        description: The enterprise token returned to the callback URL after the admin completed signup.
+      enterpriseDisplayName:
+        type: string
+        description: The display name shown to device users for this enterprise.
+      policyId:
+        type: string
+        description: The short policy id to create as the baseline (e.g. "default").
+      pubsubTopic:
+        type: string
+        description: Optional Pub/Sub topic that receives enterprise notifications.
+  steps:
+  - stepId: createEnterprise
+    description: >-
+      Exchange the signup token for a bound enterprise resource. This can only
+      be done once per signup token; the returned enterprise name is the parent
+      for every device, policy, and token that follows.
+    operationId: createEnterprise
+    parameters:
+    - name: projectId
+      in: query
+      value: $inputs.projectId
+    - name: signupUrlName
+      in: query
+      value: $inputs.signupUrlName
+    - name: enterpriseToken
+      in: query
+      value: $inputs.enterpriseToken
+    requestBody:
+      contentType: application/json
+      payload:
+        enterpriseDisplayName: $inputs.enterpriseDisplayName
+        enabledNotificationTypes:
+        - ENROLLMENT
+        - STATUS_REPORT
+        - COMMAND
+        pubsubTopic: $inputs.pubsubTopic
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      enterpriseName: $response.body#/name
+      displayName: $response.body#/enterpriseDisplayName
+  - stepId: confirmEnterprise
+    description: >-
+      Read the enterprise back to confirm the binding persisted and that the
+      notification configuration was accepted as sent.
+    operationId: getEnterprise
+    parameters:
+    - name: name
+      in: path
+      value: $steps.createEnterprise.outputs.enterpriseName
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.name != null
+      type: jsonpath
+    outputs:
+      confirmedName: $response.body#/name
+      notificationTypes: $response.body#/enabledNotificationTypes
+  - stepId: createBaselinePolicy
+    description: >-
+      Write the baseline policy every device inherits at enrollment. A policy is
+      created by patching its full resource name, so this same operation both
+      creates and updates.
+    operationId: patchPolicy
+    parameters:
+    - name: name
+      in: path
+      value: $steps.createEnterprise.outputs.enterpriseName
+    requestBody:
+      contentType: application/json
+      payload:
+        cameraDisabled: false
+        screenCaptureDisabled: true
+        passwordRequirements:
+          passwordMinimumLength: 6
+          passwordQuality: NUMERIC_COMPLEX
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      policyName: $response.body#/name
+      policyVersion: $response.body#/version
+  - stepId: createFirstEnrollmentToken
+    description: >-
+      Mint an enrollment token bound to the baseline policy. The returned
+      qrCode is what a factory-reset device scans to enroll.
+    operationId: createEnrollmentToken
+    parameters:
+    - name: parent
+      in: path
+      value: $steps.createEnterprise.outputs.enterpriseName
+    requestBody:
+      contentType: application/json
+      payload:
+        policyName: $steps.createBaselinePolicy.outputs.policyName
+        duration: 3600s
+        additionalData: onboarding-first-device
+    successCriteria:
+    - condition: $statusCode == 200
+    - context: $response.body
+      condition: $.value != null
+      type: jsonpath
+    outputs:
+      tokenName: $response.body#/name
+      tokenValue: $response.body#/value
+      qrCode: $response.body#/qrCode
+  outputs:
+    enterpriseName: $steps.createEnterprise.outputs.enterpriseName
+    policyName: $steps.createBaselinePolicy.outputs.policyName
+    enrollmentTokenValue: $steps.createFirstEnrollmentToken.outputs.tokenValue
+    enrollmentQrCode: $steps.createFirstEnrollmentToken.outputs.qrCode
