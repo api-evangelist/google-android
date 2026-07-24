@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Android Management Android Management API EnrollmentTokens API
+  description: 'The Android Management API provides remote enterprise management of Android
+
+    devices by creating and managing policies that control device behavior and
+
+    apps. It is used by Enterprise Mobility Management (EMM) providers to manage
+
+    Android Enterprise deployments.
+
+    '
+  version: v1
+servers:
+- url: https://androidmanagement.googleapis.com
+security:
+- OAuth2:
+  - androidmanagement
+tags:
+- name: EnrollmentTokens
+paths:
+  /v1/{parent}/enrollmentTokens:
+    post:
+      summary: Create enrollment token
+      operationId: createEnrollmentToken
+      parameters:
+      - name: parent
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                policyName:
+                  type: string
+                duration:
+                  type: string
+                additionalData:
+                  type: string
+                user:
+                  type: object
+      responses:
+        '200':
+          description: Token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  value:
+                    type: string
+                  qrCode:
+                    type: string
+      tags:
+      - EnrollmentTokens
+    get:
+      summary: List enrollment tokens
+      operationId: listEnrollmentTokens
+      parameters:
+      - name: parent
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Token list
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - EnrollmentTokens
+components:
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            androidmanagement: Manage Android devices and apps for your customers

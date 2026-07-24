@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Android Management Android Management API Policy API
+  description: 'The Android Management API provides remote enterprise management of Android
+
+    devices by creating and managing policies that control device behavior and
+
+    apps. It is used by Enterprise Mobility Management (EMM) providers to manage
+
+    Android Enterprise deployments.
+
+    '
+  version: v1
+servers:
+- url: https://androidmanagement.googleapis.com
+security:
+- OAuth2:
+  - androidmanagement
+tags:
+- name: Policy
+paths:
+  /v1/{name}/policy:
+    get:
+      summary: Get policy
+      operationId: getPolicy
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Policy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
+      tags:
+      - Policy
+    patch:
+      summary: Create or update policy
+      operationId: patchPolicy
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Policy'
+      responses:
+        '200':
+          description: Updated policy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Policy'
+      tags:
+      - Policy
+components:
+  schemas:
+    Policy:
+      type: object
+      properties:
+        name:
+          type: string
+        version:
+          type: string
+        applications:
+          type: array
+          items:
+            type: object
+        passwordRequirements:
+          type: object
+        cameraDisabled:
+          type: boolean
+        screenCaptureDisabled:
+          type: boolean
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            androidmanagement: Manage Android devices and apps for your customers

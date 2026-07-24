@@ -1,0 +1,149 @@
+openapi: 3.1.0
+info:
+  title: Android Management Android Management API API
+  description: 'The Android Management API provides remote enterprise management of Android
+
+    devices by creating and managing policies that control device behavior and
+
+    apps. It is used by Enterprise Mobility Management (EMM) providers to manage
+
+    Android Enterprise deployments.
+
+    '
+  version: v1
+servers:
+- url: https://androidmanagement.googleapis.com
+security:
+- OAuth2:
+  - androidmanagement
+tags:
+- name: Android Management API
+paths:
+  /v1/{name}:
+    get:
+      summary: Get enterprise
+      operationId: getEnterprise
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+        example: enterprises/LC0123abcd
+      responses:
+        '200':
+          description: Enterprise resource
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+      tags:
+      - Android Management API
+    patch:
+      summary: Update enterprise
+      operationId: patchEnterprise
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: updateMask
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enterprise'
+      responses:
+        '200':
+          description: Updated enterprise
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+      tags:
+      - Android Management API
+    delete:
+      summary: Delete enterprise
+      operationId: deleteEnterprise
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Deleted
+      tags:
+      - Android Management API
+  /v1/{name}:issueCommand:
+    post:
+      summary: Issue command to device
+      operationId: issueDeviceCommand
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                  enum:
+                  - LOCK
+                  - RESET_PASSWORD
+                  - REBOOT
+                  - RELINQUISH_OWNERSHIP
+                  - CLEAR_APP_DATA
+                duration:
+                  type: string
+                newPassword:
+                  type: string
+      responses:
+        '200':
+          description: Operation
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Android Management API
+components:
+  schemas:
+    Enterprise:
+      type: object
+      properties:
+        name:
+          type: string
+        enterpriseDisplayName:
+          type: string
+        primaryColor:
+          type: integer
+        logo:
+          type: object
+        enabledNotificationTypes:
+          type: array
+          items:
+            type: string
+        pubsubTopic:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            androidmanagement: Manage Android devices and apps for your customers

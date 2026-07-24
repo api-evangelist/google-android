@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: Android Management Android Management API Enterprises API
+  description: 'The Android Management API provides remote enterprise management of Android
+
+    devices by creating and managing policies that control device behavior and
+
+    apps. It is used by Enterprise Mobility Management (EMM) providers to manage
+
+    Android Enterprise deployments.
+
+    '
+  version: v1
+servers:
+- url: https://androidmanagement.googleapis.com
+security:
+- OAuth2:
+  - androidmanagement
+tags:
+- name: Enterprises
+paths:
+  /v1/enterprises:
+    post:
+      summary: Create enterprise
+      operationId: createEnterprise
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: signupUrlName
+        in: query
+        schema:
+          type: string
+      - name: enterpriseToken
+        in: query
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Enterprise'
+      responses:
+        '200':
+          description: Enterprise created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enterprise'
+      tags:
+      - Enterprises
+    get:
+      summary: List enterprises
+      operationId: listEnterprises
+      parameters:
+      - name: projectId
+        in: query
+        schema:
+          type: string
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  enterprises:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Enterprise'
+                  nextPageToken:
+                    type: string
+      tags:
+      - Enterprises
+components:
+  schemas:
+    Enterprise:
+      type: object
+      properties:
+        name:
+          type: string
+        enterpriseDisplayName:
+          type: string
+        primaryColor:
+          type: integer
+        logo:
+          type: object
+        enabledNotificationTypes:
+          type: array
+          items:
+            type: string
+        pubsubTopic:
+          type: string
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            androidmanagement: Manage Android devices and apps for your customers

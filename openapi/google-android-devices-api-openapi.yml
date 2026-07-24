@@ -1,0 +1,88 @@
+openapi: 3.1.0
+info:
+  title: Android Management Android Management API Devices API
+  description: 'The Android Management API provides remote enterprise management of Android
+
+    devices by creating and managing policies that control device behavior and
+
+    apps. It is used by Enterprise Mobility Management (EMM) providers to manage
+
+    Android Enterprise deployments.
+
+    '
+  version: v1
+servers:
+- url: https://androidmanagement.googleapis.com
+security:
+- OAuth2:
+  - androidmanagement
+tags:
+- name: Devices
+paths:
+  /v1/{parent}/devices:
+    get:
+      summary: List devices
+      operationId: listDevices
+      parameters:
+      - name: parent
+        in: path
+        required: true
+        schema:
+          type: string
+        example: enterprises/LC0123abcd
+      - name: pageSize
+        in: query
+        schema:
+          type: integer
+      - name: pageToken
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Device list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  devices:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Device'
+                  nextPageToken:
+                    type: string
+      tags:
+      - Devices
+components:
+  schemas:
+    Device:
+      type: object
+      properties:
+        name:
+          type: string
+        userName:
+          type: string
+        managementMode:
+          type: string
+        state:
+          type: string
+        appliedState:
+          type: string
+        policyName:
+          type: string
+        enrollmentTime:
+          type: string
+          format: date-time
+        lastStatusReportTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    OAuth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://accounts.google.com/o/oauth2/v2/auth
+          tokenUrl: https://oauth2.googleapis.com/token
+          scopes:
+            androidmanagement: Manage Android devices and apps for your customers
