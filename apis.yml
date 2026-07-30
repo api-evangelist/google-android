@@ -2,6 +2,19 @@ aid: google-android
 name: Google Android
 description: Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones, tablets, TVs, and wearables.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.android.com/static/images/logos/android-logo.png
 url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml
 created: '2024-01-01'
@@ -15,160 +28,325 @@ tags:
   - Mobile Operating System
   - Open Source
 apis:
-  - aid: google-android:android-management-api
-    name: Android Management API
-    description: The Android Management API provides remote enterprise management of Android devices by creating and managing policies that control device behavior and apps.
-    image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
-    humanURL: https://developers.google.com/android/management
-    baseURL: https://androidmanagement.googleapis.com
-    tags:
-      - Device Management
-      - Enterprise
-      - MDM
-      - Policies
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/android/management/reference/rest
-      - type: OpenAPI
-        url: https://androidmanagement.googleapis.com/$discovery/rest?version=v1
-      - type: Authentication
-        url: https://developers.google.com/android/management/authentication
-  - aid: google-android:google-play-developer-api
-    name: Google Play Developer API
-    description: The Google Play Developer API allows you to perform a number of publishing and app-management tasks including managing in-app purchases and subscriptions.
-    image: https://play-lh.googleusercontent.com/BJIR7aQ3sMO0JlxdVcX_Wy8mMv-Inh8J9t3i-ARE6M9aKqBKPDxQMr1JkEALvMECEXRM
-    humanURL: https://developers.google.com/android-publisher
-    baseURL: https://androidpublisher.googleapis.com
-    tags:
-      - In-App Purchases
-      - Play Store
-      - Publishing
-      - Subscriptions
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/android-publisher/api-ref/rest
-      - type: OpenAPI
-        url: https://androidpublisher.googleapis.com/$discovery/rest?version=v3
-      - type: GettingStarted
-        url: https://developers.google.com/android-publisher/getting_started
-  - aid: google-android:firebase-cloud-messaging-api
-    name: Firebase Cloud Messaging API
-    description: Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably send messages to Android devices at no cost.
-    image: https://firebase.google.com/images/social.png
-    humanURL: https://firebase.google.com/docs/cloud-messaging
-    baseURL: https://fcm.googleapis.com
-    tags:
-      - Cloud Messaging
-      - Firebase
-      - Messaging
-      - Push Notifications
-    properties:
-      - type: Documentation
-        url: https://firebase.google.com/docs/cloud-messaging/server
-      - type: OpenAPI
-        url: https://fcm.googleapis.com/$discovery/rest?version=v1
-      - type: SDKs
-        url: https://firebase.google.com/docs/cloud-messaging/android/client
-  - aid: google-android:google-play-games-services-api
-    name: Google Play Games Services API
-    description: The Google Play Games Services API enables games to integrate with features like achievements, leaderboards, and multiplayer gaming.
-    image: https://play-lh.googleusercontent.com/BJIR7aQ3sMO0JlxdVcX_Wy8mMv-Inh8J9t3i-ARE6M9aKqBKPDxQMr1JkEALvMECEXRM
-    humanURL: https://developers.google.com/games/services
-    baseURL: https://www.googleapis.com/games/v1
-    tags:
-      - Achievements
-      - Gaming
-      - Leaderboards
-      - Multiplayer
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/games/services/web/api/rest
-      - type: OpenAPI
-        url: https://www.googleapis.com/discovery/v1/apis/games/v1/rest
-      - type: SDKs
-        url: https://developers.google.com/games/services/android/quickstart
-  - aid: google-android:android-device-provisioning-partner-api
-    name: Android Device Provisioning Partner API
-    description: The Android Device Provisioning Partner API allows device resellers and enterprise mobility management providers to programmatically manage zero-touch enrollment for enterprise Android devices, including creating customers, claiming devices, and managing device metadata.
-    image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
-    humanURL: https://developers.google.com/zero-touch
-    baseURL: https://androiddeviceprovisioning.googleapis.com
-    tags:
-      - Device Provisioning
-      - Enterprise
-      - Reseller
-      - Zero-Touch Enrollment
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/zero-touch/reference/reseller/rest
-      - type: GettingStarted
-        url: https://developers.google.com/zero-touch/guides/overview
-  - aid: google-android:android-over-the-air-api
-    name: Android Over the Air API
-    description: The Android Over the Air API provides the infrastructure used by the Android partner portal for managing device system updates, including deployments, configurations, groups, and packages.
-    image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
-    humanURL: https://developers.google.com/android/over-the-air/reference/rest
-    baseURL: https://androidovertheair.googleapis.com
-    tags:
-      - Device Updates
-      - Firmware
-      - OTA Updates
-      - System Updates
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/android/over-the-air/reference/rest
-      - type: OpenAPI
-        url: https://androidovertheair.googleapis.com/$discovery/rest?version=v1
-      - type: Authentication
-        url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
-  - aid: google-android:google-play-emm-api
-    name: Google Play EMM API
-    description: The Google Play EMM API enables enterprise mobility management providers to manage the distribution of Android apps and configurations to enterprise users and devices. This API is no longer accepting new registrations but remains available for existing integrations.
-    image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
-    humanURL: https://developers.google.com/android/work/play/emm-api/
-    baseURL: https://androidenterprise.googleapis.com
-    tags:
-      - App Management
-      - EMM
-      - Enterprise
-      - Enterprise Mobility
-    properties:
-      - type: Documentation
-        url: https://developers.google.com/android/work/play/emm-api/v1
-      - type: GettingStarted
-        url: https://developers.google.com/android/work/play/emm-api/getstarted
-  - aid: google-android:play-integrity-api
-    name: Play Integrity API
-    description: The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions by checking that interactions and server requests are coming from your genuine app binary running on a genuine Android device.
-    image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
-    humanURL: https://developer.android.com/google/play/integrity
-    baseURL: https://playintegrity.googleapis.com
-    tags:
-      - App Verification
-      - Fraud Prevention
-      - Integrity
-      - Security
-    properties:
-      - type: Documentation
-        url: https://developer.android.com/google/play/integrity/overview
-      - type: GettingStarted
-        url: https://developer.android.com/google/play/integrity/standard
-  - aid: google-android:cloud-testing-api
-    name: Cloud Testing API
-    description: The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on real and virtual devices hosted in Google data centers, including instrumentation tests and robo tests.
-    image: https://firebase.google.com/images/social.png
-    humanURL: https://firebase.google.com/docs/test-lab
-    baseURL: https://testing.googleapis.com
-    tags:
-      - Firebase
-      - Quality Assurance
-      - Test Lab
-      - Testing
-    properties:
-      - type: Documentation
-        url: https://firebase.google.com/docs/test-lab/reference/testing/rest/
-      - type: GettingStarted
-        url: https://firebase.google.com/docs/test-lab/android/get-started
+- aid: google-android:android-device-provisioning-partner-api
+  name: Android Device Provisioning Partner API
+  description: >-
+    The Android Device Provisioning Partner API allows device resellers and enterprise mobility management
+    providers to programmatically manage zero-touch enrollment for enterprise Android devices, including
+    creating customers, claiming devices, and managing device metadata.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  humanURL: https://developers.google.com/zero-touch
+  baseURL: https://androiddeviceprovisioning.googleapis.com
+  tags:
+  - Device Provisioning
+  - Enterprise
+  - Reseller
+  - Zero-Touch Enrollment
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/zero-touch/reference/reseller/rest
+  - type: GettingStarted
+    url: https://developers.google.com/zero-touch/guides/overview
+- aid: google-android:google-play-emm-api
+  name: Google Play EMM API
+  description: >-
+    The Google Play EMM API enables enterprise mobility management providers to manage the distribution
+    of Android apps and configurations to enterprise users and devices. This API is no longer accepting
+    new registrations but remains available for existing integrations.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  humanURL: https://developers.google.com/android/work/play/emm-api/
+  baseURL: https://androidenterprise.googleapis.com
+  tags:
+  - App Management
+  - EMM
+  - Enterprise
+  - Enterprise Mobility
+  properties:
+  - type: Documentation
+    url: https://developers.google.com/android/work/play/emm-api/v1
+  - type: GettingStarted
+    url: https://developers.google.com/android/work/play/emm-api/getstarted
+- aid: google-android:play-integrity-api
+  name: Play Integrity API
+  description: >-
+    The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions
+    by checking that interactions and server requests are coming from your genuine app binary running
+    on a genuine Android device.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  humanURL: https://developer.android.com/google/play/integrity
+  baseURL: https://playintegrity.googleapis.com
+  tags:
+  - App Verification
+  - Fraud Prevention
+  - Integrity
+  - Security
+  properties:
+  - type: Documentation
+    url: https://developer.android.com/google/play/integrity/overview
+  - type: GettingStarted
+    url: https://developer.android.com/google/play/integrity/standard
+- aid: google-android:cloud-testing-api
+  name: Cloud Testing API
+  description: >-
+    The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on
+    real and virtual devices hosted in Google data centers, including instrumentation tests and robo tests.
+  image: https://firebase.google.com/images/social.png
+  humanURL: https://firebase.google.com/docs/test-lab
+  baseURL: https://testing.googleapis.com
+  tags:
+  - Firebase
+  - Quality Assurance
+  - Test Lab
+  - Testing
+  properties:
+  - type: Documentation
+    url: https://firebase.google.com/docs/test-lab/reference/testing/rest/
+  - type: GettingStarted
+    url: https://firebase.google.com/docs/test-lab/android/get-started
+- aid: google-android:google-android-android-management-api-api
+  name: Google Android Android Management API API
+  description: >-
+    The Android Management API API from Google Android — 2 operation(s) for android management api.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Android Management API
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-android-management-api-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-device-api
+  name: Google Android Device API
+  description: The Device API from Google Android — 1 operation(s) for device.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Device
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-device-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-devices-api
+  name: Google Android Devices API
+  description: The Devices API from Google Android — 1 operation(s) for devices.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Devices
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-devices-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-enrollmenttokens-api
+  name: Google Android EnrollmentTokens API
+  description: The EnrollmentTokens API from Google Android — 1 operation(s) for enrollmenttokens.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - EnrollmentTokens
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-enrollmenttokens-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-enterprises-api
+  name: Google Android Enterprises API
+  description: The Enterprises API from Google Android — 1 operation(s) for enterprises.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Enterprises
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-enterprises-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-policies-api
+  name: Google Android Policies API
+  description: The Policies API from Google Android — 1 operation(s) for policies.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-policies-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-policy-api
+  name: Google Android Policy API
+  description: The Policy API from Google Android — 1 operation(s) for policy.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - Policy
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-policy-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
+- aid: google-android:google-android-webapps-api
+  name: Google Android WebApps API
+  description: The WebApps API from Google Android — 1 operation(s) for webapps.
+  humanURL: https://developers.google.com/android/management
+  baseURL: https://androidmanagement.googleapis.com
+  tags:
+  - WebApps
+  properties:
+  - type: OpenAPI
+    url: openapi/google-android-webapps-api-openapi.yml
+  - type: Documentation
+    url: https://developers.google.com/android/management/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/management/authentication
+  - type: Documentation
+    url: https://developers.google.com/android-publisher/api-ref/rest
+  - type: GettingStarted
+    url: https://developers.google.com/android-publisher/getting_started
+  - type: Documentation
+    url: https://firebase.google.com/docs/cloud-messaging/server
+  - type: SDKs
+    url: https://firebase.google.com/docs/cloud-messaging/android/client
+  - type: Documentation
+    url: https://developers.google.com/games/services/web/api/rest
+  - type: SDKs
+    url: https://developers.google.com/games/services/android/quickstart
+  - type: Documentation
+    url: https://developers.google.com/android/over-the-air/reference/rest
+  - type: Authentication
+    url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
