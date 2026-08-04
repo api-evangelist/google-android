@@ -1,0 +1,28 @@
+{
+  "provider": "google-android",
+  "sources": [
+    "google-android-android-management-api-api-openapi.yml",
+    "google-android-device-api-openapi.yml",
+    "google-android-devices-api-openapi.yml",
+    "google-android-enrollmenttokens-api-openapi.yml",
+    "google-android-enterprises-api-openapi.yml",
+    "google-android-policies-api-openapi.yml",
+    "google-android-policy-api-openapi.yml",
+    "google-android-webapps-api-openapi.yml"
+  ],
+  "outputs": [
+    "google-android-android-management-api-api-openapi.yml",
+    "google-android-device-api-openapi.yml",
+    "google-android-devices-api-openapi.yml",
+    "google-android-enrollmenttokens-api-openapi.yml",
+    "google-android-enterprises-api-openapi.yml",
+    "google-android-policies-api-openapi.yml",
+    "google-android-policy-api-openapi.yml",
+    "google-android-webapps-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
