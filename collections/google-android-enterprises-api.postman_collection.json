@@ -1,0 +1,286 @@
+{
+  "item": [
+    {
+      "id": "2b5ef287-54af-4e24-bdca-7400b8db86ce",
+      "name": "Enterprises",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b3fec10c-4d79-4dfd-8435-075264843d9a",
+          "name": "Create enterprise",
+          "request": {
+            "name": "Create enterprise",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "enterprises"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "signupUrlName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "enterpriseToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0cbbb8d-bee5-479d-9498-886f34dcb7a8",
+              "name": "Enterprise created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "enterprises"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "signupUrlName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "enterpriseToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"enterpriseDisplayName\": \"<string>\",\n  \"primaryColor\": \"<integer>\",\n  \"logo\": \"<object>\",\n  \"enabledNotificationTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pubsubTopic\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"enterpriseDisplayName\": \"string\",\n  \"primaryColor\": 8223,\n  \"logo\": {},\n  \"enabledNotificationTypes\": [\n    \"string\",\n    \"string\"\n  ],\n  \"pubsubTopic\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f6f56b81-c6a3-4f1b-9343-a27e1485bcef",
+          "name": "List enterprises",
+          "request": {
+            "name": "List enterprises",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "enterprises"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "projectId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7dc2a3ad-c674-4ed8-bf73-bbc36fe231b8",
+              "name": "List response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "enterprises"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "projectId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"enterprises\": [\n    {\n      \"name\": \"string\",\n      \"enterpriseDisplayName\": \"string\",\n      \"primaryColor\": 3788,\n      \"logo\": {},\n      \"enabledNotificationTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pubsubTopic\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"enterpriseDisplayName\": \"string\",\n      \"primaryColor\": 8463,\n      \"logo\": {},\n      \"enabledNotificationTypes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"pubsubTopic\": \"string\"\n    }\n  ],\n  \"nextPageToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://androidmanagement.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "androidmanagement"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "799e8576-3876-44bf-afc0-ed6bc41289b1",
+    "name": "Android Management Android Management API Enterprises API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Android Management API provides remote enterprise management of Android\ndevices by creating and managing policies that control device behavior and\napps. It is used by Enterprise Mobility Management (EMM) providers to manage\nAndroid Enterprise deployments.\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -2,58 +2,63 @@ generated: '2026-06-20'
 method: derived
 status: candidate
 source: openapi/google-android-openapi.yml
-notes: >-
-  No official hosted/remote MCP server is published for the Android Management REST API.
-  (Android Management did introduce a Model Context Protocol integration preview in
-  2026-02 for agent-mode device policy authoring — see changelog — but that is not a
-  hosted API-surface MCP server.) The tool list below is a DERIVED candidate: one tool
-  per OpenAPI operation, for exposing the API to agents via a generated MCP wrapper.
+notes: 'No official hosted/remote MCP server is published for the Android Management REST API. (Android
+  Management did introduce a Model Context Protocol integration preview in 2026-02 for agent-mode device
+  policy authoring — see changelog — but that is not a hosted API-surface MCP server.) The tool list below
+  is a DERIVED candidate: one tool per OpenAPI operation, for exposing the API to agents via a generated
+  MCP wrapper.'
 server:
   name: google-android-android-management
   transport: http
 tools:
-  - name: create_enterprise
-    description: Create an enterprise
-    source_operation: openapi/google-android-openapi.yml#createEnterprise
-  - name: list_enterprises
-    description: List enterprises
-    source_operation: openapi/google-android-openapi.yml#listEnterprises
-  - name: get_enterprise
-    description: Get an enterprise
-    source_operation: openapi/google-android-openapi.yml#getEnterprise
-  - name: patch_enterprise
-    description: Update an enterprise
-    source_operation: openapi/google-android-openapi.yml#patchEnterprise
-  - name: delete_enterprise
-    description: Delete an enterprise
-    source_operation: openapi/google-android-openapi.yml#deleteEnterprise
-  - name: list_devices
-    description: List devices in an enterprise
-    source_operation: openapi/google-android-openapi.yml#listDevices
-  - name: get_device
-    description: Get a device
-    source_operation: openapi/google-android-openapi.yml#getDevice
-  - name: issue_device_command
-    description: Issue a command to a device
-    source_operation: openapi/google-android-openapi.yml#issueDeviceCommand
-  - name: list_policies
-    description: List policies
-    source_operation: openapi/google-android-openapi.yml#listPolicies
-  - name: get_policy
-    description: Get a policy
-    source_operation: openapi/google-android-openapi.yml#getPolicy
-  - name: patch_policy
-    description: Update a policy
-    source_operation: openapi/google-android-openapi.yml#patchPolicy
-  - name: create_enrollment_token
-    description: Create an enrollment token
-    source_operation: openapi/google-android-openapi.yml#createEnrollmentToken
-  - name: list_enrollment_tokens
-    description: List enrollment tokens
-    source_operation: openapi/google-android-openapi.yml#listEnrollmentTokens
-  - name: create_web_app
-    description: Create a web app
-    source_operation: openapi/google-android-openapi.yml#createWebApp
-  - name: list_web_apps
-    description: List web apps
-    source_operation: openapi/google-android-openapi.yml#listWebApps
+- name: create_enterprise
+  description: Create an enterprise
+  source_operation: openapi/google-android-openapi.yml#createEnterprise
+- name: list_enterprises
+  description: List enterprises
+  source_operation: openapi/google-android-openapi.yml#listEnterprises
+- name: get_enterprise
+  description: Get an enterprise
+  source_operation: openapi/google-android-openapi.yml#getEnterprise
+- name: patch_enterprise
+  description: Update an enterprise
+  source_operation: openapi/google-android-openapi.yml#patchEnterprise
+- name: delete_enterprise
+  description: Delete an enterprise
+  source_operation: openapi/google-android-openapi.yml#deleteEnterprise
+- name: list_devices
+  description: List devices in an enterprise
+  source_operation: openapi/google-android-openapi.yml#listDevices
+- name: get_device
+  description: Get a device
+  source_operation: openapi/google-android-openapi.yml#getDevice
+- name: issue_device_command
+  description: Issue a command to a device
+  source_operation: openapi/google-android-openapi.yml#issueDeviceCommand
+- name: list_policies
+  description: List policies
+  source_operation: openapi/google-android-openapi.yml#listPolicies
+- name: get_policy
+  description: Get a policy
+  source_operation: openapi/google-android-openapi.yml#getPolicy
+- name: patch_policy
+  description: Update a policy
+  source_operation: openapi/google-android-openapi.yml#patchPolicy
+- name: create_enrollment_token
+  description: Create an enrollment token
+  source_operation: openapi/google-android-openapi.yml#createEnrollmentToken
+- name: list_enrollment_tokens
+  description: List enrollment tokens
+  source_operation: openapi/google-android-openapi.yml#listEnrollmentTokens
+- name: create_web_app
+  description: Create a web app
+  source_operation: openapi/google-android-openapi.yml#createWebApp
+- name: list_web_apps
+  description: List web apps
+  source_operation: openapi/google-android-openapi.yml#listWebApps
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Android Management Android Management API Enterprises API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Enterprises",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List enterprises",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://androidmanagement.googleapis.com/v1/enterprises",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageToken",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List enterprises"
+        },
+        {
+          "info": {
+            "name": "Create enterprise",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://androidmanagement.googleapis.com/v1/enterprises",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "signupUrlName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "enterpriseToken",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create enterprise"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,148 @@
+{
+  "item": [
+    {
+      "id": "9cf71308-e42a-47d4-8102-1923c63927c6",
+      "name": "Device",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d582dbc-4da9-4731-a0d6-a74426547fea",
+          "name": "Get device",
+          "request": {
+            "name": "Get device",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                ":name",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "115390f4-3bf7-4231-a96c-cf102842fc85",
+              "name": "Device",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    ":name",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"userName\": \"string\",\n  \"managementMode\": \"string\",\n  \"state\": \"string\",\n  \"appliedState\": \"string\",\n  \"policyName\": \"string\",\n  \"enrollmentTime\": \"1965-07-27T19:38:23.923Z\",\n  \"lastStatusReportTime\": \"2022-08-20T20:48:08.576Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://androidmanagement.googleapis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "androidmanagement"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://oauth2.googleapis.com/token"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://accounts.google.com/o/oauth2/v2/auth"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1b47625-9912-41ea-af11-77a1e472777a",
+    "name": "Android Management Android Management API Device API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Android Management API provides remote enterprise management of Android\ndevices by creating and managing policies that control device behavior and\napps. It is used by Enterprise Mobility Management (EMM) providers to manage\nAndroid Enterprise deployments.\n",
+      "type": "text/plain"
+    }
+  }
+}

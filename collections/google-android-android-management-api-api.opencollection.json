@@ -1,0 +1,115 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Android Management Android Management API API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Android Management API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get enterprise",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://androidmanagement.googleapis.com/v1/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "enterprises/LC0123abcd",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get enterprise"
+        },
+        {
+          "info": {
+            "name": "Update enterprise",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://androidmanagement.googleapis.com/v1/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateMask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update enterprise"
+        },
+        {
+          "info": {
+            "name": "Delete enterprise",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://androidmanagement.googleapis.com/v1/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete enterprise"
+        },
+        {
+          "info": {
+            "name": "Issue command to device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://androidmanagement.googleapis.com/v1/:name:issueCommand",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Issue command to device"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Android Management Android Management API Policies API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://androidmanagement.googleapis.com/v1/:parent/policies",
+            "params": [
+              {
+                "name": "parent",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List policies"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

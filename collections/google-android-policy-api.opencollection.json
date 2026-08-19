@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Android Management Android Management API Policy API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "accessTokenUrl": "https://oauth2.googleapis.com/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://androidmanagement.googleapis.com/v1/:name/policy",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get policy"
+        },
+        {
+          "info": {
+            "name": "Create or update policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://androidmanagement.googleapis.com/v1/:name/policy",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "updateMask",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update policy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
