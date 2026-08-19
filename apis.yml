@@ -20,7 +20,7 @@ url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/
 created: '2024-01-01'
 modified: '2026-06-20'
 access: 3rd-Party
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 tags:
   - Android
   - Google
