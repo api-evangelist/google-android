@@ -26,6 +26,12 @@ tags:
   - Google
   - Mobile Development
   - Mobile Operating System
+  - Open-Source
+tags_raw:
+  - Android
+  - Google
+  - Mobile Development
+  - Mobile Operating System
   - Open Source
 apis:
 - aid: google-android:android-device-provisioning-partner-api
@@ -323,6 +329,8 @@ apis:
   humanURL: https://developers.google.com/android/management
   baseURL: https://androidmanagement.googleapis.com
   tags:
+  - Web App
+  tags_raw:
   - WebApps
   properties:
   - type: OpenAPI
