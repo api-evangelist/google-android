@@ -12,8 +12,14 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: androidManagementApi
-  url: ../openapi/google-android-openapi.yml
+- name: deviceApi
+  url: ../openapi/google-android-device-api-openapi.yml
+  type: openapi
+- name: devicesApi
+  url: ../openapi/google-android-devices-api-openapi.yml
+  type: openapi
+- name: policyApi
+  url: ../openapi/google-android-policy-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: roll-out-policy-change

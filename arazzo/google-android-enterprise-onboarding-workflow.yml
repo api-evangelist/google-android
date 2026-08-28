@@ -12,8 +12,17 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: androidManagementApi
-  url: ../openapi/google-android-openapi.yml
+- name: androidManagementApiApi
+  url: ../openapi/google-android-android-management-api-api-openapi.yml
+  type: openapi
+- name: enrollmenttokensApi
+  url: ../openapi/google-android-enrollmenttokens-api-openapi.yml
+  type: openapi
+- name: enterprisesApi
+  url: ../openapi/google-android-enterprises-api-openapi.yml
+  type: openapi
+- name: policyApi
+  url: ../openapi/google-android-policy-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboard-enterprise
