@@ -1,0 +1,27 @@
+slug: google-android
+provider: Google Android
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Android Management API
+  spec_file: google-android-android-management-api-api-openapi.yml
+  capability_id: BC-600
+  capability_id_l1: BC-600
+  capability_name: Information Technology Management
+  confidence: 0.7
+  evidence: '"remote enterprise management of Android devices by creating and managing policies that control
+    device behavior and apps"; POST /v1/{name}:issueCommand issueDeviceCommand "Issue command to device"'
+  reason: Enterprise mobility/endpoint management — managing the enrolling enterprise and issuing remote
+    commands to managed devices. This is corporate IT management of endpoints; evidence does not clearly
+    single out one L2, so L1 only.

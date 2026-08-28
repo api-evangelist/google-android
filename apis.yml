@@ -2,6 +2,18 @@ aid: google-android
 name: Google Android
 description: Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones, tablets, TVs, and wearables.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -359,6 +371,9 @@ maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
 common:
+  - type: CapabilityMap
+    url: capabilities/google-android-capability-edges.yml
+    name: Google Android Business Capability Map
   - type: AgenticAccess
     url: agentic-access/google-android-agentic-access.yml
   - type: DomainSecurity
