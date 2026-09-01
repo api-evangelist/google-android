@@ -27,7 +27,7 @@ accessModel:
   - authentication
   generated: '2026-07-22'
   method: derived
-image: https://www.android.com/static/images/logos/android-logo.png
+image: ''
 url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-06-20'
