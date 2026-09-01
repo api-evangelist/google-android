@@ -341,7 +341,7 @@ apis:
   humanURL: https://developers.google.com/android/management
   baseURL: https://androidmanagement.googleapis.com
   tags:
-  - WebApps
+  - Web App
   tags_raw:
   - WebApps
   properties:
