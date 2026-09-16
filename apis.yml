@@ -367,6 +367,8 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: Website
+  url: https://google.com
 - type: CapabilityMap
   url: capabilities/google-android-capability-edges.yml
   name: Google Android Business Capability Map
