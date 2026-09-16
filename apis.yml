@@ -1,6 +1,8 @@
 aid: google-android
 name: Google Android
-description: Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones, tablets, TVs, and wearables.
+description: Android is a mobile operating system developed by Google, based on a modified version of
+  the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones,
+  tablets, TVs, and wearables.
 type: Index
 deliveryModel:
   model: saas
@@ -30,30 +32,28 @@ accessModel:
 image: ''
 url: https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-06-20'
+modified: '2026-09-16'
 access: 3rd-Party
 specificationVersion: '0.23'
 tags:
-  - Android
-  - Google
-  - Mobile Development
-  - Mobile Operating System
-  - Open-Source
+- Android
+- Google
+- Mobile Development
+- Mobile Operating System
+- Open-Source
 tags_raw:
-  - Android
-  - Google
-  - Mobile Development
-  - Mobile Operating System
-  - Open Source
+- Android
+- Google
+- Mobile Development
+- Mobile Operating System
+- Open Source
 apis:
 - aid: google-android:android-device-provisioning-partner-api
   name: Android Device Provisioning Partner API
-  description: >-
-    The Android Device Provisioning Partner API allows device resellers and enterprise mobility management
-    providers to programmatically manage zero-touch enrollment for enterprise Android devices, including
-    creating customers, claiming devices, and managing device metadata.
-  image: >-
-    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: The Android Device Provisioning Partner API allows device resellers and enterprise mobility
+    management providers to programmatically manage zero-touch enrollment for enterprise Android devices,
+    including creating customers, claiming devices, and managing device metadata.
+  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developers.google.com/zero-touch
   baseURL: https://androiddeviceprovisioning.googleapis.com
   tags:
@@ -68,12 +68,10 @@ apis:
     url: https://developers.google.com/zero-touch/guides/overview
 - aid: google-android:google-play-emm-api
   name: Google Play EMM API
-  description: >-
-    The Google Play EMM API enables enterprise mobility management providers to manage the distribution
-    of Android apps and configurations to enterprise users and devices. This API is no longer accepting
-    new registrations but remains available for existing integrations.
-  image: >-
-    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: The Google Play EMM API enables enterprise mobility management providers to manage the
+    distribution of Android apps and configurations to enterprise users and devices. This API is no longer
+    accepting new registrations but remains available for existing integrations.
+  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developers.google.com/android/work/play/emm-api/
   baseURL: https://androidenterprise.googleapis.com
   tags:
@@ -88,12 +86,10 @@ apis:
     url: https://developers.google.com/android/work/play/emm-api/getstarted
 - aid: google-android:play-integrity-api
   name: Play Integrity API
-  description: >-
-    The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions
-    by checking that interactions and server requests are coming from your genuine app binary running
-    on a genuine Android device.
-  image: >-
-    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: The Play Integrity API helps protect your apps and games from potentially risky and fraudulent
+    interactions by checking that interactions and server requests are coming from your genuine app binary
+    running on a genuine Android device.
+  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developer.android.com/google/play/integrity
   baseURL: https://playintegrity.googleapis.com
   tags:
@@ -108,9 +104,9 @@ apis:
     url: https://developer.android.com/google/play/integrity/standard
 - aid: google-android:cloud-testing-api
   name: Cloud Testing API
-  description: >-
-    The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on
-    real and virtual devices hosted in Google data centers, including instrumentation tests and robo tests.
+  description: The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and
+    iOS apps on real and virtual devices hosted in Google data centers, including instrumentation tests
+    and robo tests.
   image: https://firebase.google.com/images/social.png
   humanURL: https://firebase.google.com/docs/test-lab
   baseURL: https://testing.googleapis.com
@@ -125,9 +121,9 @@ apis:
   - type: GettingStarted
     url: https://firebase.google.com/docs/test-lab/android/get-started
 - aid: google-android:google-android-android-management-api-api
-  name: Google Android Android Management API API
-  description: >-
-    The Android Management API API from Google Android — 2 operation(s) for android management api.
+  name: Google Android Management API
+  description: The Android Management API API from Google Android — 2 operation(s) for android management
+    api.
   humanURL: https://developers.google.com/android/management
   baseURL: https://androidmanagement.googleapis.com
   tags:
@@ -368,138 +364,142 @@ apis:
   - type: Authentication
     url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 common:
-  - type: CapabilityMap
-    url: capabilities/google-android-capability-edges.yml
-    name: Google Android Business Capability Map
-  - type: AgenticAccess
-    url: agentic-access/google-android-agentic-access.yml
-  - type: DomainSecurity
-    url: security/google-android-domain-security.yml
-  - type: Authentication
-    url: authentication/google-android-authentication.yml
-  - type: OAuthScopes
-    url: scopes/google-android-scopes.yml
-  - type: Packages
-    url: packages/google-android-packages.yml
-  - type: WellKnown
-    url: well-known/google-android-well-known.yml
-  - type: SecurityTxt
-    url: well-known/google-android-security.txt
-  - type: X-MCPServerCandidate
-    url: mcp/google-android-mcp.yml
-    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
-  - type: LLMsTxt
-    url: llms/google-android-llms.txt
-  - type: Overlay
-    url: overlays/google-android-android-management-overlay.yaml
-  - type: Conformance
-    url: conformance/google-android-conformance.yml
-  - type: ErrorCatalog
-    url: errors/google-android-problem-types.yml
-  - type: Lifecycle
-    url: lifecycle/google-android-lifecycle.yml
-  - type: Conventions
-    url: conventions/google-android-conventions.yml
-  - type: ChangeLog
-    url: changelog/google-android-changelog.yml
-  - type: DataModel
-    url: data-model/google-android-data-model.yml
-  - type: VulnerabilityDisclosure
-    url: security/google-android-vulnerability-disclosure.yml
-  - type: TrustCenter
-    url: security/google-android-trust-center.yml
-  - type: Arazzo
-    url: arazzo/google-android-enterprise-onboarding-workflow.yml
-    name: Google Android Onboard an Enterprise
-  - type: Arazzo
-    url: arazzo/google-android-device-enrollment-workflow.yml
-    name: Google Android Enroll a Device and Confirm It Checked In
-  - type: Arazzo
-    url: arazzo/google-android-policy-rollout-workflow.yml
-    name: Google Android Roll Out a Policy Change and Verify It Applied
-  - type: Arazzo
-    url: arazzo/google-android-remote-device-command-workflow.yml
-    name: Google Android Issue a Remote Command and Poll the Device
-  - type: Arazzo
-    url: arazzo/google-android-fleet-inventory-audit-workflow.yml
-    name: Google Android Audit an Enterprise Fleet
-  - type: Arazzo
-    url: arazzo/google-android-web-app-publishing-workflow.yml
-    name: Google Android Publish a Web App and Push It to a Policy
-  - type: Arazzo
-    url: arazzo/google-android-notification-configuration-workflow.yml
-    name: Google Android Configure Enterprise Pub/Sub Notifications
-  - type: Arazzo
-    url: arazzo/google-android-enterprise-offboarding-workflow.yml
-    name: Google Android Offboard an Enterprise
-  - type: LinkedIn
-    url: https://www.linkedin.com/showcase/android_by_google
-  - type: Portal
-    url: https://developers.android.com/
-  - type: Blog
-    url: https://android-developers.googleblog.com/
-  - type: GitHubOrganization
-    url: https://github.com/android
-  - type: TermsOfService
-    url: https://developers.google.com/terms
-  - type: PrivacyPolicy
-    url: https://policies.google.com/privacy
-  - type: Support
-    url: https://developer.android.com/support
-  - type: Newsletter
-    url: https://developer.android.com/newsletter
-  - type: StackOverflow
-    url: https://stackoverflow.com/questions/tagged/android
-  - type: YouTube
-    url: https://www.youtube.com/user/androiddevelopers
-  - type: Support
-    url: https://issuetracker.google.com/issues?q=componentid:192735
-  - type: Training
-    url: https://developer.android.com/courses
-  - type: StatusPage
-    url: https://status.cloud.google.com/
-  - type: Features
-    data:
-      - name: Enterprise Device Management
-        description: Remotely manage and configure Android devices with policies for enterprise mobility.
-      - name: App Publishing and Distribution
-        description: Publish and manage Android apps on Google Play including in-app purchases and subscriptions.
-      - name: Push Notifications
-        description: Send cross-platform push notifications to Android devices via Firebase Cloud Messaging.
-      - name: Play Integrity
-        description: Verify that interactions come from genuine app binaries running on genuine Android devices.
-      - name: Zero-Touch Enrollment
-        description: Automate enterprise device provisioning and enrollment at scale.
-      - name: Cloud Testing
-        description: Test Android apps on real and virtual devices in Google data centers via Firebase Test Lab.
-      - name: Game Services
-        description: Integrate achievements, leaderboards, and multiplayer features into Android games.
-      - name: Over-the-Air Updates
-        description: Manage system updates and firmware deployments for Android device fleets.
-  - type: UseCases
-    data:
-      - name: Enterprise Mobility Management
-        description: Deploy and manage corporate Android devices with security policies and app distribution.
-      - name: App Store Management
-        description: Automate app publishing, pricing, and subscription management on Google Play.
-      - name: User Engagement
-        description: Drive user engagement with push notifications, in-app messages, and game achievements.
-      - name: Device Fleet Management
-        description: Manage large fleets of Android devices for retail, logistics, or field operations.
-      - name: App Quality Assurance
-        description: Automate testing of Android apps across device configurations using Cloud Testing.
-  - type: Integrations
-    data:
-      - name: Firebase
-        description: Integrate with Firebase for analytics, crashlytics, authentication, and cloud messaging.
-      - name: Google Cloud
-        description: Connect Android apps to Google Cloud services for storage, ML, and compute.
-      - name: Google Play Console
-        description: Manage app releases, testing tracks, and performance metrics through the Play Console.
-      - name: Android Studio
-        description: Develop and debug Android apps with the official IDE and its integrated tools.
-      - name: Jetpack Libraries
-        description: Use Android Jetpack libraries for architecture, UI, and behavior best practices.
+- type: CapabilityMap
+  url: capabilities/google-android-capability-edges.yml
+  name: Google Android Business Capability Map
+- type: AgenticAccess
+  url: agentic-access/google-android-agentic-access.yml
+- type: DomainSecurity
+  url: security/google-android-domain-security.yml
+- type: Authentication
+  url: authentication/google-android-authentication.yml
+- type: OAuthScopes
+  url: scopes/google-android-scopes.yml
+- type: Packages
+  url: packages/google-android-packages.yml
+- type: WellKnown
+  url: well-known/google-android-well-known.yml
+- type: SecurityTxt
+  url: well-known/google-android-security.txt
+- type: X-MCPServerCandidate
+  url: mcp/google-android-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
+- type: LLMsTxt
+  url: llms/google-android-llms.txt
+- type: Overlay
+  url: overlays/google-android-android-management-overlay.yaml
+- type: Conformance
+  url: conformance/google-android-conformance.yml
+- type: ErrorCatalog
+  url: errors/google-android-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/google-android-lifecycle.yml
+- type: Conventions
+  url: conventions/google-android-conventions.yml
+- type: ChangeLog
+  url: changelog/google-android-changelog.yml
+- type: DataModel
+  url: data-model/google-android-data-model.yml
+- type: VulnerabilityDisclosure
+  url: security/google-android-vulnerability-disclosure.yml
+- type: TrustCenter
+  url: security/google-android-trust-center.yml
+- type: Arazzo
+  url: arazzo/google-android-enterprise-onboarding-workflow.yml
+  name: Google Android Onboard an Enterprise
+- type: Arazzo
+  url: arazzo/google-android-device-enrollment-workflow.yml
+  name: Google Android Enroll a Device and Confirm It Checked In
+- type: Arazzo
+  url: arazzo/google-android-policy-rollout-workflow.yml
+  name: Google Android Roll Out a Policy Change and Verify It Applied
+- type: Arazzo
+  url: arazzo/google-android-remote-device-command-workflow.yml
+  name: Google Android Issue a Remote Command and Poll the Device
+- type: Arazzo
+  url: arazzo/google-android-fleet-inventory-audit-workflow.yml
+  name: Google Android Audit an Enterprise Fleet
+- type: Arazzo
+  url: arazzo/google-android-web-app-publishing-workflow.yml
+  name: Google Android Publish a Web App and Push It to a Policy
+- type: Arazzo
+  url: arazzo/google-android-notification-configuration-workflow.yml
+  name: Google Android Configure Enterprise Pub/Sub Notifications
+- type: Arazzo
+  url: arazzo/google-android-enterprise-offboarding-workflow.yml
+  name: Google Android Offboard an Enterprise
+- type: LinkedIn
+  url: https://www.linkedin.com/showcase/android_by_google
+- type: Portal
+  url: https://developers.android.com/
+- type: Blog
+  url: https://android-developers.googleblog.com/
+- type: GitHubOrganization
+  url: https://github.com/android
+- type: TermsOfService
+  url: https://developers.google.com/terms
+- type: PrivacyPolicy
+  url: https://policies.google.com/privacy
+- type: Support
+  url: https://developer.android.com/support
+- type: Newsletter
+  url: https://developer.android.com/newsletter
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/android
+- type: YouTube
+  url: https://www.youtube.com/user/androiddevelopers
+- type: Support
+  url: https://issuetracker.google.com/issues?q=componentid:192735
+- type: Training
+  url: https://developer.android.com/courses
+- type: StatusPage
+  url: https://status.cloud.google.com/
+- type: Features
+  data:
+  - name: Enterprise Device Management
+    description: Remotely manage and configure Android devices with policies for enterprise mobility.
+  - name: App Publishing and Distribution
+    description: Publish and manage Android apps on Google Play including in-app purchases and subscriptions.
+  - name: Push Notifications
+    description: Send cross-platform push notifications to Android devices via Firebase Cloud Messaging.
+  - name: Play Integrity
+    description: Verify that interactions come from genuine app binaries running on genuine Android devices.
+  - name: Zero-Touch Enrollment
+    description: Automate enterprise device provisioning and enrollment at scale.
+  - name: Cloud Testing
+    description: Test Android apps on real and virtual devices in Google data centers via Firebase Test
+      Lab.
+  - name: Game Services
+    description: Integrate achievements, leaderboards, and multiplayer features into Android games.
+  - name: Over-the-Air Updates
+    description: Manage system updates and firmware deployments for Android device fleets.
+- type: UseCases
+  data:
+  - name: Enterprise Mobility Management
+    description: Deploy and manage corporate Android devices with security policies and app distribution.
+  - name: App Store Management
+    description: Automate app publishing, pricing, and subscription management on Google Play.
+  - name: User Engagement
+    description: Drive user engagement with push notifications, in-app messages, and game achievements.
+  - name: Device Fleet Management
+    description: Manage large fleets of Android devices for retail, logistics, or field operations.
+  - name: App Quality Assurance
+    description: Automate testing of Android apps across device configurations using Cloud Testing.
+- type: Integrations
+  data:
+  - name: Firebase
+    description: Integrate with Firebase for analytics, crashlytics, authentication, and cloud messaging.
+  - name: Google Cloud
+    description: Connect Android apps to Google Cloud services for storage, ML, and compute.
+  - name: Google Play Console
+    description: Manage app releases, testing tracks, and performance metrics through the Play Console.
+  - name: Android Studio
+    description: Develop and debug Android apps with the official IDE and its integrated tools.
+  - name: Jetpack Libraries
+    description: Use Android Jetpack libraries for architecture, UI, and behavior best practices.
