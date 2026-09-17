@@ -50,10 +50,12 @@ tags_raw:
 apis:
 - aid: google-android:android-device-provisioning-partner-api
   name: Android Device Provisioning Partner API
-  description: The Android Device Provisioning Partner API allows device resellers and enterprise mobility
-    management providers to programmatically manage zero-touch enrollment for enterprise Android devices,
-    including creating customers, claiming devices, and managing device metadata.
-  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: >-
+    The Android Device Provisioning Partner API allows device resellers and enterprise mobility management
+    providers to programmatically manage zero-touch enrollment for enterprise Android devices, including
+    creating customers, claiming devices, and managing device metadata.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developers.google.com/zero-touch
   baseURL: https://androiddeviceprovisioning.googleapis.com
   tags:
@@ -68,10 +70,12 @@ apis:
     url: https://developers.google.com/zero-touch/guides/overview
 - aid: google-android:google-play-emm-api
   name: Google Play EMM API
-  description: The Google Play EMM API enables enterprise mobility management providers to manage the
-    distribution of Android apps and configurations to enterprise users and devices. This API is no longer
-    accepting new registrations but remains available for existing integrations.
-  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: >-
+    The Google Play EMM API enables enterprise mobility management providers to manage the distribution
+    of Android apps and configurations to enterprise users and devices. This API is no longer accepting
+    new registrations but remains available for existing integrations.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developers.google.com/android/work/play/emm-api/
   baseURL: https://androidenterprise.googleapis.com
   tags:
@@ -86,10 +90,12 @@ apis:
     url: https://developers.google.com/android/work/play/emm-api/getstarted
 - aid: google-android:play-integrity-api
   name: Play Integrity API
-  description: The Play Integrity API helps protect your apps and games from potentially risky and fraudulent
-    interactions by checking that interactions and server requests are coming from your genuine app binary
-    running on a genuine Android device.
-  image: https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
+  description: >-
+    The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions
+    by checking that interactions and server requests are coming from your genuine app binary running
+    on a genuine Android device.
+  image: >-
+    https://www.gstatic.com/devrel-devsite/prod/v2ff77c87c709f3e5e323c03865ecedf5b4afc4446d0e0e2904abf9d5/android/images/touchicon-180.png
   humanURL: https://developer.android.com/google/play/integrity
   baseURL: https://playintegrity.googleapis.com
   tags:
@@ -104,9 +110,9 @@ apis:
     url: https://developer.android.com/google/play/integrity/standard
 - aid: google-android:cloud-testing-api
   name: Cloud Testing API
-  description: The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and
-    iOS apps on real and virtual devices hosted in Google data centers, including instrumentation tests
-    and robo tests.
+  description: >-
+    The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on
+    real and virtual devices hosted in Google data centers, including instrumentation tests and robo tests.
   image: https://firebase.google.com/images/social.png
   humanURL: https://firebase.google.com/docs/test-lab
   baseURL: https://testing.googleapis.com
@@ -122,8 +128,8 @@ apis:
     url: https://firebase.google.com/docs/test-lab/android/get-started
 - aid: google-android:google-android-android-management-api-api
   name: Google Android Management API
-  description: The Android Management API API from Google Android — 2 operation(s) for android management
-    api.
+  description: >-
+    The Android Management API API from Google Android — 2 operation(s) for android management api.
   humanURL: https://developers.google.com/android/management
   baseURL: https://androidmanagement.googleapis.com
   tags:
@@ -331,18 +337,16 @@ apis:
     url: https://developers.google.com/android/over-the-air/reference/rest
   - type: Authentication
     url: https://developers.google.com/android/over-the-air/v1/how-tos/authorizing
-- aid: google-android:google-android-webapps-api
-  name: Google Android WebApps API
-  description: The WebApps API from Google Android — 1 operation(s) for webapps.
-  humanURL: https://developers.google.com/android/management
-  baseURL: https://androidmanagement.googleapis.com
+- aid: google-android:google-android-web-apps-api
+  name: Google Android Web Apps API
+  description: The Web Apps API from Google Android — 1 operation(s) for web apps.
+  humanURL: https://developers.google.com/zero-touch
+  baseURL: https://androiddeviceprovisioning.googleapis.com
   tags:
-  - Web App
-  tags_raw:
-  - WebApps
+  - Web Apps
   properties:
   - type: OpenAPI
-    url: openapi/google-android-webapps-api-openapi.yml
+    url: openapi/google-android-web-apps-api-openapi.yml
   - type: Documentation
     url: https://developers.google.com/android/management/reference/rest
   - type: Authentication
