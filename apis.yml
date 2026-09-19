@@ -343,6 +343,8 @@ apis:
   humanURL: https://developers.google.com/zero-touch
   baseURL: https://androiddeviceprovisioning.googleapis.com
   tags:
+  - Web App
+  tags_raw:
   - Web Apps
   properties:
   - type: OpenAPI
