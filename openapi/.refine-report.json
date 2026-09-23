@@ -1,14 +1,7 @@
 {
   "provider": "google-android",
   "sources": [
-    "google-android-android-management-api-api-openapi.yml",
-    "google-android-device-api-openapi.yml",
-    "google-android-devices-api-openapi.yml",
-    "google-android-enrollmenttokens-api-openapi.yml",
-    "google-android-enterprises-api-openapi.yml",
-    "google-android-policies-api-openapi.yml",
-    "google-android-policy-api-openapi.yml",
-    "google-android-webapps-api-openapi.yml"
+    "_original/google-android-openapi.yml"
   ],
   "outputs": [
     "google-android-android-management-api-api-openapi.yml",
@@ -20,9 +13,48 @@
     "google-android-policy-api-openapi.yml",
     "google-android-webapps-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "google-android-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "google-android-openapi.yml: tagged paths POST /v1/enterprises -> Enterprises",
+    "google-android-openapi.yml: tagged paths GET /v1/enterprises -> Enterprises",
+    "google-android-openapi.yml: tagged paths GET /v1/{name} -> Android Management API",
+    "google-android-openapi.yml: tagged paths PATCH /v1/{name} -> Android Management API",
+    "google-android-openapi.yml: tagged paths DELETE /v1/{name} -> Android Management API",
+    "google-android-openapi.yml: tagged paths GET /v1/{parent}/devices -> Devices",
+    "google-android-openapi.yml: tagged paths GET /v1/{name}/device -> Device",
+    "google-android-openapi.yml: tagged paths POST /v1/{name}:issueCommand -> Android Management API",
+    "google-android-openapi.yml: tagged paths GET /v1/{parent}/policies -> Policies",
+    "google-android-openapi.yml: tagged paths GET /v1/{name}/policy -> Policy",
+    "google-android-openapi.yml: tagged paths PATCH /v1/{name}/policy -> Policy",
+    "google-android-openapi.yml: tagged paths POST /v1/{parent}/enrollmentTokens -> EnrollmentTokens",
+    "google-android-openapi.yml: tagged paths GET /v1/{parent}/enrollmentTokens -> EnrollmentTokens",
+    "google-android-openapi.yml: tagged paths POST /v1/{parent}/webApps -> WebApps",
+    "google-android-openapi.yml: tagged paths GET /v1/{parent}/webApps -> WebApps",
+    "google-android-openapi.yml: declared missing tag: Android Management API",
+    "google-android-openapi.yml: declared missing tag: Device",
+    "google-android-openapi.yml: declared missing tag: Devices",
+    "google-android-openapi.yml: declared missing tag: EnrollmentTokens",
+    "google-android-openapi.yml: declared missing tag: Enterprises",
+    "google-android-openapi.yml: declared missing tag: Policies",
+    "google-android-openapi.yml: declared missing tag: Policy",
+    "google-android-openapi.yml: declared missing tag: WebApps",
+    "superseded outputs removed: google-android-web-apps-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 12 total)"
+  ],
+  "skipped": [
+    "google-android-android-management-api-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-device-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-devices-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-enrollmenttokens-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-enterprises-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-policy-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "google-android-web-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

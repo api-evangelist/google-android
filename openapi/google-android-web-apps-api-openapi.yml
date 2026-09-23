@@ -1,15 +1,13 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Android Management Android Management API WebApps API
+  title: Android Management Web Apps API
   description: 'The Android Management API provides remote enterprise management of Android
 
     devices by creating and managing policies that control device behavior and
 
     apps. It is used by Enterprise Mobility Management (EMM) providers to manage
 
-    Android Enterprise deployments.
-
-    '
+    Android Enterprise deployments.'
   version: v1
 servers:
 - url: https://androidmanagement.googleapis.com
@@ -17,7 +15,7 @@ security:
 - OAuth2:
   - androidmanagement
 tags:
-- name: WebApps
+- name: Web Apps
 paths:
   /v1/{parent}/webApps:
     post:
@@ -43,7 +41,7 @@ paths:
               schema:
                 type: object
       tags:
-      - WebApps
+      - Web Apps
     get:
       summary: List web apps
       operationId: listWebApps
@@ -61,7 +59,7 @@ paths:
               schema:
                 type: object
       tags:
-      - WebApps
+      - Web Apps
 components:
   securitySchemes:
     OAuth2:
