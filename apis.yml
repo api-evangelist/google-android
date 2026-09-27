@@ -40,13 +40,14 @@ tags:
 - Google
 - Mobile Development
 - Mobile Operating System
-- Open-Source
+- Open Source
 tags_raw:
 - Android
 - Google
 - Mobile Development
 - Mobile Operating System
 - Open Source
+- Open-Source
 apis:
 - aid: google-android:android-device-provisioning-partner-api
   name: Android Device Provisioning Partner API
@@ -343,8 +344,6 @@ apis:
   humanURL: https://developers.google.com/zero-touch
   baseURL: https://androiddeviceprovisioning.googleapis.com
   tags:
-  - Web App
-  tags_raw:
   - Web Apps
   properties:
   - type: OpenAPI
