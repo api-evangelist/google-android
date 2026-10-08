@@ -372,6 +372,12 @@ maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 common:
+- type: Plans
+  url: plans/google-android-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/google-android-rate-limits.yml
+- type: FinOps
+  url: finops/google-android-finops.yml
 - type: Website
   url: https://google.com
 - type: CapabilityMap
