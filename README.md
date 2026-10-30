@@ -1,4 +1,4 @@
-# Google Android (google-android)
+# Google Android
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,242 +66,172 @@
 
 Android is a mobile operating system developed by Google, based on a modified version of the Linux kernel and other open-source software. It powers billions of devices worldwide including smartphones, tablets, TVs, and wearables.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/google-android/refs/heads/main/apis.yml)
+**Areas:** Android · Google · Mobile Development · Mobile Operating System · Open Source
 
-## Scope
+## Google Android on APIs.io
 
-- **Type:** Index
-- **Access:** 3rd-Party
+Everything profiled for Google Android is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/google-android/](https://apis.io/providers/google-android/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (12)
 
-- Android
-- Google
-- Mobile Development
-- Mobile Operating System
-- Open Source
+- [Android Device Provisioning Partner API](https://apis.io/apis/google-android/android-device-provisioning-partner-api/) — The Android Device Provisioning Partner API allows device resellers and enterprise mobility management providers to programmatically manage zero-touch…
+- [Google Play EMM API](https://apis.io/apis/google-android/google-play-emm-api/) — The Google Play EMM API enables enterprise mobility management providers to manage the distribution of Android apps and configurations to enterprise users…
+- [Play Integrity API](https://apis.io/apis/google-android/play-integrity-api/) — The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions by checking that interactions and server…
+- [Cloud Testing API](https://apis.io/apis/google-android/cloud-testing-api/) — The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on real and virtual devices hosted in Google data centers,…
+- [Google Android Management API](https://apis.io/apis/google-android/google-android-android-management-api-api/) — The Android Management API API from Google Android — 2 operation(s) for android management api.
+- [Google Android Device API](https://apis.io/apis/google-android/google-android-device-api/) — The Device API from Google Android — 1 operation(s) for device.
+- [Google Android Devices API](https://apis.io/apis/google-android/google-android-devices-api/) — The Devices API from Google Android — 1 operation(s) for devices.
+- [Google Android EnrollmentTokens API](https://apis.io/apis/google-android/google-android-enrollmenttokens-api/) — The EnrollmentTokens API from Google Android — 1 operation(s) for enrollmenttokens.
+- [Google Android Enterprises API](https://apis.io/apis/google-android/google-android-enterprises-api/) — The Enterprises API from Google Android — 1 operation(s) for enterprises.
+- [Google Android Policies API](https://apis.io/apis/google-android/google-android-policies-api/) — The Policies API from Google Android — 1 operation(s) for policies.
+- [Google Android Policy API](https://apis.io/apis/google-android/google-android-policy-api/) — The Policy API from Google Android — 1 operation(s) for policy.
+- [Google Android Web Apps API](https://apis.io/apis/google-android/google-android-web-apps-api/) — The Web Apps API from Google Android — 1 operation(s) for web apps.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-18
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Arazzo workflows (8)
 
-### Android Management API
+Multi-step workflows that chain operations into a business task.
 
-The Android Management API provides remote enterprise management of Android devices by creating and managing policies that control device behavior and apps.
+- [Google Android Enroll a Device and Confirm It Checked In](https://apis.io/arazzos/google-android/google-android-device-enrollment-workflow/)
+- [Google Android Offboard an Enterprise](https://apis.io/arazzos/google-android/google-android-enterprise-offboarding-workflow/)
+- [Google Android Onboard an Enterprise](https://apis.io/arazzos/google-android/google-android-enterprise-onboarding-workflow/)
+- [Google Android Audit an Enterprise Fleet](https://apis.io/arazzos/google-android/google-android-fleet-inventory-audit-workflow/)
+- [Google Android Configure Enterprise Pub/Sub Notifications](https://apis.io/arazzos/google-android/google-android-notification-configuration-workflow/)
+- [Google Android Roll Out a Policy Change and Verify It Applied](https://apis.io/arazzos/google-android/google-android-policy-rollout-workflow/)
+- [Google Android Issue a Remote Command and Poll the Device](https://apis.io/arazzos/google-android/google-android-remote-device-command-workflow/)
+- [Google Android Publish a Web App and Push It to a Policy](https://apis.io/arazzos/google-android/google-android-web-app-publishing-workflow/)
 
-- **Human URL:** [https://developers.google.com/android/management](https://developers.google.com/android/management)
-- **Base URL:** `https://androidmanagement.googleapis.com`
+#### MCP servers (1)
 
-#### Tags
+Model Context Protocol servers that expose the API to agents.
 
-- Device Management
-- Enterprise
-- MDM
-- Policies
+- [google-android-android-management](https://apis.io/servers/google-android/google-android-android-management/)
 
-#### Properties
+#### Agentic access (1)
 
-- [Documentation](https://developers.google.com/android/management/reference/rest)
-- [OpenAPI](https://androidmanagement.googleapis.com/$discovery/rest?version=v1) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://developers.google.com/android/management/authentication)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Which operations an agent can call, which act, and which need a human in the loop.
 
-### Google Play Developer API
+- [Google Android Agentic Access](https://apis.io/agentic-access/google-android/google-android-agentic-access/)
 
-The Google Play Developer API allows you to perform a number of publishing and app-management tasks including managing in-app purchases and subscriptions.
+#### Collections (9)
 
-- **Human URL:** [https://developers.google.com/android-publisher](https://developers.google.com/android-publisher)
-- **Base URL:** `https://androidpublisher.googleapis.com`
+Postman and Open Collection request collections.
 
-#### Tags
+- [Android Management API](https://apis.io/collections/google-android/open-google-android/)
+- [Android Management Android Management API API](https://apis.io/collections/google-android/open-google-android-android-management-api-api/)
+- [Android Management Android Management API Device API](https://apis.io/collections/google-android/open-google-android-device-api/)
+- [Android Management Android Management API Devices API](https://apis.io/collections/google-android/open-google-android-devices-api/)
+- [Android Management Android Management API EnrollmentTokens API](https://apis.io/collections/google-android/open-google-android-enrollmenttokens-api/)
+- [Android Management Android Management API Enterprises API](https://apis.io/collections/google-android/open-google-android-enterprises-api/)
+- [Android Management Android Management API Policies API](https://apis.io/collections/google-android/open-google-android-policies-api/)
+- [Android Management Android Management API Policy API](https://apis.io/collections/google-android/open-google-android-policy-api/)
+- [Android Management Android Management API WebApps API](https://apis.io/collections/google-android/open-google-android-webapps-api/)
 
-- In-App Purchases
-- Play Store
-- Publishing
-- Subscriptions
+#### Overlays (1)
 
-#### Properties
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- [Documentation](https://developers.google.com/android-publisher/api-ref/rest)
-- [OpenAPI](https://androidpublisher.googleapis.com/$discovery/rest?version=v3) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Getting Started](https://developers.google.com/android-publisher/getting_started)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Google Android Android Management Overlay](https://apis.io/overlays/google-android/google-android-android-management-overlay/)
 
-### Firebase Cloud Messaging API
+#### Security (4)
 
-Firebase Cloud Messaging (FCM) is a cross-platform messaging solution that lets you reliably send messages to Android devices at no cost.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://firebase.google.com/docs/cloud-messaging](https://firebase.google.com/docs/cloud-messaging)
-- **Base URL:** `https://fcm.googleapis.com`
+- [Google Android Authentication](https://apis.io/security/google-android/google-android-authentication/)
+- [Google Android Domain Security](https://apis.io/security/google-android/google-android-domain-security/)
+- [Google Android Trust Center](https://apis.io/security/google-android/google-android-trust-center/)
+- [Google Android Vulnerability Disclosure](https://apis.io/security/google-android/google-android-vulnerability-disclosure/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Cloud Messaging
-- Firebase
-- Messaging
-- Push Notifications
+The permissions the API asks for.
 
-#### Properties
+- [Google Android Scopes](https://apis.io/scopes/google-android/google-android-scopes/)
 
-- [Documentation](https://firebase.google.com/docs/cloud-messaging/server)
-- [OpenAPI](https://fcm.googleapis.com/$discovery/rest?version=v1) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [SDK](https://firebase.google.com/docs/cloud-messaging/android/client)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Google Play Games Services API
+Published plans, tiers and prices.
 
-The Google Play Games Services API enables games to integrate with features like achievements, leaderboards, and multiplayer gaming.
+- [Google Android Plans Pricing](https://apis.io/plans/google-android/google-android-plans-pricing/)
 
-- **Human URL:** [https://developers.google.com/games/services](https://developers.google.com/games/services)
-- **Base URL:** `https://www.googleapis.com/games/v1`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Achievements
-- Gaming
-- Leaderboards
-- Multiplayer
+- [Google Android Rate Limits](https://apis.io/rate-limits/google-android/google-android-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://developers.google.com/games/services/web/api/rest)
-- [OpenAPI](https://www.googleapis.com/discovery/v1/apis/games/v1/rest) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [SDK](https://developers.google.com/games/services/android/quickstart)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-### Android Device Provisioning Partner API
+- [Google Android Finops](https://apis.io/finops/google-android/google-android-finops/)
 
-The Android Device Provisioning Partner API allows device resellers and enterprise mobility management providers to programmatically manage zero-touch enrollment for enterprise Android devices, including creating customers, claiming devices, and managing device metadata.
+## Where to find this API
 
-- **Human URL:** [https://developers.google.com/zero-touch](https://developers.google.com/zero-touch)
-- **Base URL:** `https://androiddeviceprovisioning.googleapis.com`
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-#### Tags
-
-- Device Provisioning
-- Enterprise
-- Reseller
-- Zero-Touch Enrollment
-
-#### Properties
-
-- [Documentation](https://developers.google.com/zero-touch/reference/reseller/rest)
-- [Getting Started](https://developers.google.com/zero-touch/guides/overview)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Android Over the Air API
-
-The Android Over the Air API provides the infrastructure used by the Android partner portal for managing device system updates, including deployments, configurations, groups, and packages.
-
-- **Human URL:** [https://developers.google.com/android/over-the-air/reference/rest](https://developers.google.com/android/over-the-air/reference/rest)
-- **Base URL:** `https://androidovertheair.googleapis.com`
-
-#### Tags
-
-- Device Updates
-- Firmware
-- OTA Updates
-- System Updates
-
-#### Properties
-
-- [Documentation](https://developers.google.com/android/over-the-air/reference/rest)
-- [OpenAPI](https://androidovertheair.googleapis.com/$discovery/rest?version=v1) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Authentication](https://developers.google.com/android/over-the-air/v1/how-tos/authorizing)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Google Play EMM API
-
-The Google Play EMM API enables enterprise mobility management providers to manage the distribution of Android apps and configurations to enterprise users and devices. This API is no longer accepting new registrations but remains available for existing integrations.
-
-- **Human URL:** [https://developers.google.com/android/work/play/emm-api/](https://developers.google.com/android/work/play/emm-api/)
-- **Base URL:** `https://androidenterprise.googleapis.com`
-
-#### Tags
-
-- App Management
-- EMM
-- Enterprise
-- Enterprise Mobility
-
-#### Properties
-
-- [Documentation](https://developers.google.com/android/work/play/emm-api/v1)
-- [Getting Started](https://developers.google.com/android/work/play/emm-api/getstarted)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Play Integrity API
-
-The Play Integrity API helps protect your apps and games from potentially risky and fraudulent interactions by checking that interactions and server requests are coming from your genuine app binary running on a genuine Android device.
-
-- **Human URL:** [https://developer.android.com/google/play/integrity](https://developer.android.com/google/play/integrity)
-- **Base URL:** `https://playintegrity.googleapis.com`
-
-#### Tags
-
-- App Verification
-- Fraud Prevention
-- Integrity
-- Security
-
-#### Properties
-
-- [Documentation](https://developer.android.com/google/play/integrity/overview)
-- [Getting Started](https://developer.android.com/google/play/integrity/standard)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Cloud Testing API
-
-The Cloud Testing API powers Firebase Test Lab, enabling developers to test Android and iOS apps on real and virtual devices hosted in Google data centers, including instrumentation tests and robo tests.
-
-- **Human URL:** [https://firebase.google.com/docs/test-lab](https://firebase.google.com/docs/test-lab)
-- **Base URL:** `https://testing.googleapis.com`
-
-#### Tags
-
-- Firebase
-- Quality Assurance
-- Test Lab
-- Testing
-
-#### Properties
-
-- [Documentation](https://firebase.google.com/docs/test-lab/reference/testing/rest/)
-- [Getting Started](https://firebase.google.com/docs/test-lab/android/get-started)
-- [Postman Collection](collections/google-android.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/google-android.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/showcase/android_by_google)
-- [Portal](https://developers.android.com/)
-- [Blog](https://android-developers.googleblog.com/)
-- [GitHub Organization](https://github.com/android)
-- [Terms of Service](https://developers.google.com/terms)
-- [Privacy Policy](https://policies.google.com/privacy)
+- [Website](https://google.com)
 - [Support](https://developer.android.com/support)
-- [Newsletter](https://developer.android.com/newsletter)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/android)
-- [YouTube](https://www.youtube.com/user/androiddevelopers)
-- [Support](https://issuetracker.google.com/issues?q=componentid:192735)
-- [Training](https://developer.android.com/courses)
-- [Status Page](https://status.cloud.google.com/)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://android-developers.googleblog.com/)
+- [Terms of service](https://developers.google.com/terms)
+- [Privacy policy](https://policies.google.com/privacy)
+- [GitHub](https://github.com/android)
+- [Status](https://status.cloud.google.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 47.6** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 69.6 |
+| Contract quality | 43.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 52.6 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 36.8 |
+
+**Agent readiness 33.0** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 45.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/google-android/](https://apis.io/providers/google-android/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Google Android: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/google-android/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
